@@ -1,0 +1,48 @@
+[
+    {
+        "name": "Player",
+        "pv": 50,
+        "maxPv": 50,
+        "exp": 0,
+        "lvl": 1,
+        "atq": 2,
+        "def": 1,
+        "gold": 0,
+        "equipment":[
+        ],
+        "inventori": [
+            {
+                "id": 1,
+                "slot": "Right-hand",
+                "rarity": "Common",
+                "damage": 5,
+                "price": 5,
+                "objectId": 1
+            },
+            {
+                "id": 1,
+                "slot": "Right-hand",
+                "rarity": "Rare",
+                "damage": 7,
+                "price": 7,
+                "objectId": 2
+            },
+            {
+                "id": 1,
+                "slot": "Right-hand",
+                "rarity": "Epic",
+                "damage": 10,
+                "price": 10,
+                "objectId": 3
+            },
+            {
+                "id": 1,
+                "slot": "Right-hand",
+                "rarity": "Legendary",
+                "damage": 12,
+                "price": 12,
+                "objectId": 4
+            }
+        ]
+      }
+]
