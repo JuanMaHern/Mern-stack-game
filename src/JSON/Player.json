@@ -94,6 +94,8 @@
             "equipment": [
                 {
                     "id": 1,
+                    "name": "Sword",
+                    "desc": "To rule them all",
                     "slot": "Right-hand",
                     "rarity": "Common",
                     "damage": 5,
@@ -104,6 +106,8 @@
             "inventori": [
                 {
                     "id": 1,
+                    "name": "Sword",
+                    "desc": "To rule them all",
                     "slot": "Right-hand",
                     "rarity": "Rare",
                     "damage": 7,
@@ -112,6 +116,8 @@
                 },
                 {
                     "id": 1,
+                    "name": "Sword",
+                    "desc": "To rule them all",
                     "slot": "Right-hand",
                     "rarity": "Epic",
                     "damage": 10,
@@ -120,6 +126,8 @@
                 },
                 {
                     "id": 1,
+                    "name": "Sword",
+                    "desc": "To rule them all",
                     "slot": "Right-hand",
                     "rarity": "Legendary",
                     "damage": 12,

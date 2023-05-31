@@ -6,11 +6,13 @@ import NavBar from "./NavBar"
 const MainWindow = ({ user, enemi }) => {
     const [player, setPlayer] = useState(user.current)
     const [dWindow, setDWindow] = useState('main')
+    const [infoWindow, setInfoWindow] = useState(null)
     return(
         <div className="mainWindow">
             <NavBar setDWindow={setDWindow} />
             <DisplayWindow player={player} dWindow={dWindow} />
-            <LateralWindow player={player} setPlayer={setPlayer} />
+            <LateralWindow player={player} setPlayer={setPlayer} setInfoWindow={setInfoWindow}/>
+            {infoWindow}
         </div>
     )
 }

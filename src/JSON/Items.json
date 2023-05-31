@@ -2,6 +2,7 @@
     {
         "id": 1,
         "name": "Sword",
+        "desc": "To rule them all",
         "type": "Weapon",
         "slot": "Right-hand",
         "class": "Warrior",
