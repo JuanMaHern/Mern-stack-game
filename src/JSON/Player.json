@@ -1,48 +1,130 @@
 [
-    {
-        "name": "Player",
-        "pv": 50,
-        "maxPv": 50,
-        "exp": 0,
-        "lvl": 1,
-        "atq": 2,
-        "def": 1,
-        "gold": 0,
-        "equipment":[
-        ],
-        "inventori": [
-            {
-                "id": 1,
-                "slot": "Right-hand",
-                "rarity": "Common",
-                "damage": 5,
-                "price": 5,
-                "objectId": 1
+    {   
+        "userName": "Admin",
+        "password": "1234",
+        "email": "Admin@Msg.com",
+        "character": {
+            "name": "Player",
+            "pv": 50,
+            "maxPv": 50,
+            "exp": 0,
+            "lvl": 1,
+            "atq": 2,
+            "def": 1,
+            "gold": 0,
+            "atributes": {
+                "Str": 1,
+                "Const": 1,
+                "Int": 1,
+                "Agi": 1,
+                "Wis": 1,
+                "Cha": 1
             },
-            {
-                "id": 1,
-                "slot": "Right-hand",
-                "rarity": "Rare",
-                "damage": 7,
-                "price": 7,
-                "objectId": 2
+            "skills": {
+                "Gathering": {
+                    "Level": 0,
+                    "Xp": 0
+                },
+                "Mining": {
+                    "Level": 0,
+                    "Xp": 0
+                },
+                "Logging": {
+                    "Level": 0,
+                    "Xp": 0
+                },
+                "Fishing": {
+                    "Level": 0,
+                    "Xp": 0
+                },
+                "Harvesting": {
+                    "Level": 0,
+                    "Xp": 0
+                },
+                "Skining": {
+                    "Level": 0,
+                    "Xp": 0
+                },
+                "Smelting": {
+                    "Level": 0,
+                    "Xp": 0
+                },
+                "WoodWorking": {
+                    "Level": 0,
+                    "Xp": 0
+                },
+                "LeatherWorking": {
+                    "Level": 0,
+                    "Xp": 0
+                },
+                "Weaving": {
+                    "Level": 0,
+                    "Xp": 0
+                },
+                "StoneCutting": {
+                    "Level": 0,
+                    "Xp": 0
+                },
+                "WeaponSmithing": {
+                    "Level": 0,
+                    "Xp": 0
+                },
+                "Armoring": {
+                    "Level": 0,
+                    "Xp": 0
+                },
+                "Engineering": {
+                    "Level": 0,
+                    "Xp": 0
+                },
+                "JewelCrafting": {
+                    "Level": 0,
+                    "Xp": 0
+                },
+                "Cooking": {
+                    "Level": 0,
+                    "Xp": 0
+                },
+                "Furnishing": {
+                    "Level": 0,
+                    "Xp": 0
+                }
             },
-            {
-                "id": 1,
-                "slot": "Right-hand",
-                "rarity": "Epic",
-                "damage": 10,
-                "price": 10,
-                "objectId": 3
-            },
-            {
-                "id": 1,
-                "slot": "Right-hand",
-                "rarity": "Legendary",
-                "damage": 12,
-                "price": 12,
-                "objectId": 4
-            }
-        ]
-      }
+            "equipment": [],
+            "inventori": [
+                {
+                    "id": 1,
+                    "slot": "Right-hand",
+                    "rarity": "Common",
+                    "damage": 5,
+                    "price": 5,
+                    "objectId": 1
+                },
+                {
+                    "id": 1,
+                    "slot": "Right-hand",
+                    "rarity": "Rare",
+                    "damage": 7,
+                    "price": 7,
+                    "objectId": 2
+                },
+                {
+                    "id": 1,
+                    "slot": "Right-hand",
+                    "rarity": "Epic",
+                    "damage": 10,
+                    "price": 10,
+                    "objectId": 3
+                },
+                {
+                    "id": 1,
+                    "slot": "Right-hand",
+                    "rarity": "Legendary",
+                    "damage": 12,
+                    "price": 12,
+                    "objectId": 4
+                }
+            ]
+        }
+    }
 ]
