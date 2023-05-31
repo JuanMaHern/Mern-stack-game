@@ -1,5 +1,5 @@
 [
-    {   
+    {
         "userName": "Admin",
         "password": "1234",
         "email": "Admin@Msg.com",
@@ -12,6 +12,7 @@
             "atq": 2,
             "def": 1,
             "gold": 0,
+            "invCap": 20,
             "atributes": {
                 "Str": 1,
                 "Const": 1,
@@ -90,8 +91,7 @@
                     "Xp": 0
                 }
             },
-            "equipment": [],
-            "inventori": [
+            "equipment": [
                 {
                     "id": 1,
                     "slot": "Right-hand",
@@ -99,7 +99,9 @@
                     "damage": 5,
                     "price": 5,
                     "objectId": 1
-                },
+                }
+            ],
+            "inventori": [
                 {
                     "id": 1,
                     "slot": "Right-hand",
