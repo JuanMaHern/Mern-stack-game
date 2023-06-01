@@ -124,6 +124,25 @@
     border: 1px solid black;
     border-radius: 5px;
 }
+.itemImg {
+    width: 30px;
+    height: 30px;
+}
+
+#Common {
+    border: 1px solid gray;
+}
+#Rare {
+    border: 1px solid blue;
+}
+#Epic {
+    border: 1px solid red;
+}
+#Legendary{
+    border: 1px solid yellow;
+}
+
+/* ---------------------------------------------itemMenu--------------------------------------------------- */
 
 .itemMenu {
     width: 70px;
@@ -145,6 +164,8 @@
 .itemMenu span:hover {
     color: var(--br);
 }
+
+/* ---------------------------------------------infoWindow-------------------------------------------------- */
 
 .infoWindow {
     width: 180px;
@@ -190,6 +211,8 @@
 .infoWindow #closeBtn:hover {
     color: var(--br);
 }
+
+/* ------------------------------------------------nn------------------------------------------------------ */
 
 .blur {
     width: 100%;

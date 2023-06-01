@@ -8,7 +8,7 @@ export function FillInventori(inventori ,cap){
     for(let i=0; i < cap; i++){
         if(inventori[i] !== undefined){
             const DbObject = Db.find(elem => elem.id === inventori[i].id)
-            auxInv.push({...inventori[i], img: DbObject.img, inv: inv})
+            auxInv.push({...DbObject ,...inventori[i], inv: inv})
         } else {
             auxInv.push({name: '?', objectId: uuid()})
         }

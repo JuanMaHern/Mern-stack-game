@@ -95,7 +95,6 @@
                 {
                     "id": 1,
                     "name": "Sword",
-                    "desc": "To rule them all",
                     "slot": "Right-hand",
                     "rarity": "Common",
                     "damage": 5,
@@ -105,34 +104,58 @@
             ],
             "inventori": [
                 {
-                    "id": 1,
-                    "name": "Sword",
-                    "desc": "To rule them all",
-                    "slot": "Right-hand",
-                    "rarity": "Rare",
-                    "damage": 7,
-                    "price": 7,
+                    "id": 2,
+                    "name": "Big Hammer",
+                    "slot": "Doble-handed",
+                    "rarity": "Common",
+                    "damage": 10,
+                    "price": 10,
                     "objectId": 2
                 },
                 {
-                    "id": 1,
-                    "name": "Sword",
-                    "desc": "To rule them all",
-                    "slot": "Right-hand",
-                    "rarity": "Epic",
-                    "damage": 10,
-                    "price": 10,
+                    "id": 3,
+                    "name": "Shield",
+                    "slot": "Left-hand",
+                    "rarity": "Common",
+                    "defense": 5,
+                    "price": 5,
                     "objectId": 3
                 },
                 {
-                    "id": 1,
-                    "name": "Sword",
-                    "desc": "To rule them all",
-                    "slot": "Right-hand",
-                    "rarity": "Legendary",
-                    "damage": 12,
-                    "price": 12,
+                    "id": 4,
+                    "name": "Helmet",
+                    "slot": "Head",
+                    "rarity": "Common",
+                    "defense": 5,
+                    "price": 5,
                     "objectId": 4
+                },
+                {
+                    "id": 4,
+                    "name": "Helmet",
+                    "slot": "Head",
+                    "rarity": "Epic",
+                    "defense": 10,
+                    "price": 10,
+                    "objectId": 7
+                },
+                {
+                    "id": 5,
+                    "name": "Armor",
+                    "slot": "Armor",
+                    "rarity": "Common",
+                    "defense": 5,
+                    "price": 5,
+                    "objectId": 5
+                },
+                {
+                    "id": 5,
+                    "name": "Armor",
+                    "slot": "Armor",
+                    "rarity": "Rare",
+                    "defense": 7,
+                    "price": 7,
+                    "objectId": 6
                 }
             ]
         }

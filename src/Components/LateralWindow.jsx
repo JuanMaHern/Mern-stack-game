@@ -10,7 +10,7 @@ const LateralWindow = ({ player, setPlayer, setInfoWindow }) => {
         setInfoWindow(<InfoWindow item={item} setPlayer={setPlayer} setInfoWindow={setInfoWindow} />)
     }
     const handleIMenu = (item) => {
-        setIMenu(<ItemMenu item={item} pos={{x: event.x, y: event.y}} setPlayer={setPlayer} setIMenu={setIMenu} handleInfoWindow={handleInfoWindow} />)
+        setIMenu(<ItemMenu item={item} pos={{x: event.x, y: event.y}} player={player} setPlayer={setPlayer} setIMenu={setIMenu} handleInfoWindow={handleInfoWindow} />)
     }
     return(
         <div className="lateralWindow">
