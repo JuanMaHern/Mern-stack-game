@@ -1,6 +1,6 @@
 const ItemSlot = ({ item, handleIMenu }) => {
     let itm = null
-    if (item.name !== '?'){
+    if (item !== '?'){
         itm = <img className="itemImg" style={{cursor: 'pointer'}} src={item.img} alt={item.name} onClick={() => handleIMenu(item)} />
     }
     return (

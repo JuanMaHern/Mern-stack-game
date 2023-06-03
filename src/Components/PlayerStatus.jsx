@@ -7,12 +7,12 @@ const PlayerStatus = ({ player }) => {
         <div className="playerStatus">
             <div>
                 <span>Atributes</span>
-                <p>Str: {player.atributes.Str}</p>
-                <p>Const: {player.atributes.Const}</p>
-                <p>Int: {player.atributes.Int}</p>
-                <p>Agi: {player.atributes.Agi}</p>
-                <p>Wis: {player.atributes.Wis}</p>
-                <p>Cha: {player.atributes.Cha}</p>
+                <p>Str: {player.atributes.str}</p>
+                <p>Const: {player.atributes.const}</p>
+                <p>Int: {player.atributes.int}</p>
+                <p>Agi: {player.atributes.agi}</p>
+                <p>Wis: {player.atributes.wis}</p>
+                <p>Cha: {player.atributes.cha}</p>
 
             </div>
             <div>

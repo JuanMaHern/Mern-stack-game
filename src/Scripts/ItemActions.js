@@ -5,8 +5,6 @@ const EquipControl = (item, player) => {
     if (item.slot === 'Doble-handed') {
         const right = player.character.equipment.find(object => object.slot === 'Right-hand')
         const left = player.character.equipment.find(object => object.slot === 'Left-hand')
-        console.log(right)
-        console.log(left)
         right !== undefined? auxPlayer = Unequip(right, auxPlayer): null
         return  left !== undefined? Unequip(left, auxPlayer): auxPlayer
     }

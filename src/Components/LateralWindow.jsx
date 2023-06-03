@@ -14,8 +14,17 @@ const LateralWindow = ({ player, setPlayer, setInfoWindow }) => {
     }
     return(
         <div className="lateralWindow">
-            <span>Equipment</span>
+            <img src={player.character.avatar} alt={player.character.name} />
+            <span>{player.character.name}</span>
+            <span>Pv: {player.character.pv} / {player.character.maxPv}</span>
+            <span>Level: {player.character.lvl}</span>
+            <span>Exp: {player.character.exp}/{100*player.character.lvl*player.character.lvl}</span>
+            <span>Damage: {player.character.dmg}</span>
+            <span>Defense: {player.character.def}</span>
+            <span>Gold: {player.character.gold}</span>
+            <span>Equipment
             <Inventori inventori={player.character.equipment} invCap={10} handleIMenu={handleIMenu} />
+            </span>
             <span>Inventori {player.character.inventori.length}/{player.character.invCap}</span>
             <Inventori inventori={player.character.inventori} invCap={player.character.invCap} handleIMenu={handleIMenu} />
             {iMenu}

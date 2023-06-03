@@ -7,7 +7,6 @@ const InfoWindow = ({ item, setPlayer, setInfoWindow }) => {
             <div className="infoWindow">
                 <div className="infoHeader">
                     <ItemSlot item={item} />
-                    {/* <div className="itemSlot" ><img src={item.img} alt={item.name} /></div> */}
                     <div className="headerText">
                         <span id="name" >{item.rarity} {item.name}</span>
                         <span id="desc" >{item.desc}</span>
@@ -15,13 +14,13 @@ const InfoWindow = ({ item, setPlayer, setInfoWindow }) => {
                 </div>
                 <div className="infoBody">
                     <span>Type: {item.type}</span>
-                    <span>Slot: {item.slot}</span>
-                    <span>Class: {item.class}</span>
-                    {item.damage === undefined ?
-                        <span>Defense: {item.defense}</span> :
-                        item.defense === undefined ?
-                            <span>Damage: {item.damage}</span> :
-                            null
+                    <span>{item.type !== 'Consumable' ? `Slot: ${item.slot}` : null}</span>
+                    <span>{item.type !== 'Consumable' ? `Class: ${item.class}`: null}</span>
+                    {item.damage !== undefined ?
+                        <span>Damage: {item.damage}</span> :
+                        item.defense !== undefined ?
+                            <span>Defense: {item.defense}</span> :
+                            <span>{item.action.type}: {item.action.amount} </span>
                     }
                     <span>Price: {item.price}G</span>
                 </div>
