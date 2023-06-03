@@ -14,7 +14,7 @@
             "gold": 0,
             "invCap": 20,
             "atributes": {
-                "str": 1,
+                "str": 125,
                 "const": 1,
                 "int": 1,
                 "agi": 1,
@@ -135,6 +135,7 @@
                 },
                 {
                     "id": 6,
+                    "amount": 20,
                     "objectId": 9
                 }
             ],

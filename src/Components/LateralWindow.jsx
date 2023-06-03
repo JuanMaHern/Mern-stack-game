@@ -3,18 +3,18 @@ import Inventori from "./Inventori"
 import ItemMenu from "./ItemMenu"
 import InfoWindow from "./InfoWindow"
 
-const LateralWindow = ({ player, setPlayer, setInfoWindow }) => {
+const LateralWindow = ({ player, setPlayer, setBlurWindow }) => {
     const [iMenu, setIMenu] = useState(null)
     const handleInfoWindow = (item) => {
         setIMenu(null)
-        setInfoWindow(<InfoWindow item={item} setPlayer={setPlayer} setInfoWindow={setInfoWindow} />)
+        setBlurWindow(<InfoWindow item={item} setPlayer={setPlayer} setBlurWindow={setBlurWindow} />)
     }
     const handleIMenu = (item) => {
         setIMenu(<ItemMenu item={item} pos={{x: event.x, y: event.y}} player={player} setPlayer={setPlayer} setIMenu={setIMenu} handleInfoWindow={handleInfoWindow} />)
     }
     return(
         <div className="lateralWindow">
-            <img src={player.character.avatar} alt={player.character.name} />
+            <span className="avatar" ><img  src={player.character.avatar} alt={player.character.name} /></span>
             <span>{player.character.name}</span>
             <span>Pv: {player.character.pv} / {player.character.maxPv}</span>
             <span>Level: {player.character.lvl}</span>

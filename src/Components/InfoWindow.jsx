@@ -1,7 +1,6 @@
 import ItemSlot from "./ItemSlot"
 
-const InfoWindow = ({ item, setPlayer, setInfoWindow }) => {
-    console.log(item)
+const InfoWindow = ({ item, setPlayer, setBlurWindow }) => {
     return (
         <div className="blur">
             <div className="infoWindow">
@@ -24,7 +23,7 @@ const InfoWindow = ({ item, setPlayer, setInfoWindow }) => {
                     }
                     <span>Price: {item.price}G</span>
                 </div>
-                <span id="closeBtn" onClick={() => setInfoWindow(null)}>Close</span>
+                <span id="closeBtn" onClick={() => setBlurWindow(null)}>Close</span>
             </div>
         </div>
     )
