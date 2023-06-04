@@ -2,6 +2,7 @@ import { useState } from "react"
 import ProgressBar from "./ProgressBar"
 import ItemSlot from "./ItemSlot";
 import { v4 as uuid } from 'uuid'
+import { Loot } from "../Scripts/Loot";
 
 const Battle = ({ enemy, player, setPlayer, setBlurWindow }) => {
     const [battle, setBattle] = useState({
@@ -39,6 +40,8 @@ const Battle = ({ enemy, player, setPlayer, setBlurWindow }) => {
             if (auxBattle.enemy.pv === 0){
                 auxBattle.status = 'win'
                 auxBattle.log.push(`${player.character.name} wins`)
+                auxBattle.loot = Loot(enemy) 
+                console.log(auxBattle.loot)
             } else {
                 auxBattle.turn = 'enemy'
                 auxBattle.log.push('Enemy turn')
