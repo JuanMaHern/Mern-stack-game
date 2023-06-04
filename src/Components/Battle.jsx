@@ -3,6 +3,7 @@ import ProgressBar from "./ProgressBar"
 import ItemSlot from "./ItemSlot";
 import { v4 as uuid } from 'uuid'
 import { Loot } from "../Scripts/Loot";
+import { AddtoInv } from "../Scripts/AddtoInv";
 
 const Battle = ({ enemy, player, setPlayer, setBlurWindow }) => {
     const [battle, setBattle] = useState({
@@ -13,6 +14,14 @@ const Battle = ({ enemy, player, setPlayer, setBlurWindow }) => {
         loot: ['?','?','?','?','?','?','?','?'],
         log: []
     })
+    const handleLoot = (item) => {
+        let auxBattle = JSON.parse(JSON.stringify(battle))
+        const auxLoot = auxBattle.loot.find(elem => elem.objectId === item.objectId)
+        auxBattle.loot.splice(auxBattle.loot.indexOf(auxLoot), 1, '?')
+        auxBattle.player.character.inventori = AddtoInv(auxBattle.player.character.inventori, auxLoot)
+        setBattle(auxBattle)
+        setPlayer(auxBattle.player)
+    }
     if (battle.turn === 'enemy') {
         setTimeout(() => {
             let auxBattle = JSON.parse(JSON.stringify(battle))
@@ -67,7 +76,7 @@ const Battle = ({ enemy, player, setPlayer, setBlurWindow }) => {
                 })}</div>
                 <span>Loot</span>
                 <div className="battleLoot">{battle.loot.map(item => {
-                    return <ItemSlot key={item !== '?'? item.objectId : uuid() } item={item} />
+                    return <ItemSlot key={item !== '?'? item.objectId : uuid()} item={item} handleIMenu={handleLoot} />
                 })}</div>
             </span>
         </div>

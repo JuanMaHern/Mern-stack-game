@@ -10,7 +10,9 @@ const EquipControl = (item, player) => {
     }
     if (item.slot === 'Right-hand' || item.slot === 'Left-hand') {
         const DHand = player.character.equipment.find(object => object.slot === 'Doble-handed')
-        return DHand !== undefined ? Unequip(DHand, player) : auxPlayer
+        if (DHand !== undefined){
+            return Unequip(DHand, player)
+        }
     }
     if (equipItem === undefined) {
         return auxPlayer
@@ -25,6 +27,7 @@ export function Equip(item, player) {
     const invItem = auxPlayer.character.inventori.indexOf(auxPlayer.character.inventori.find(object => object.objectId === item.objectId))
     auxPlayer.character.equipment.push({...player.character.inventori[invItem], inv: 'E'})
     auxPlayer.character.inventori.splice(invItem, 1)
+    console.log(auxPlayer)
     return auxPlayer
 }
 

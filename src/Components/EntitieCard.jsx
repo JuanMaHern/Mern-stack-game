@@ -1,5 +1,4 @@
 const EntitieCard = ({ enemy, handleFight }) => {
-    console.log(enemy)
     return (
         <div className="entitieCard">
             <span>

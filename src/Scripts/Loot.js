@@ -28,8 +28,8 @@ export function Loot(enemy) {
             const atrib = auxItem.type === 'Weapon' ?
                 { rarity: auxRarity.rar, damage: Math.floor(auxItem.damage * auxRarity.multip) } :
                 auxItem.type === 'Armor' ? { rarity: auxRarity.rar, defense: Math.floor(auxItem.defense * auxRarity.multip) } :
-                    {}
-            auxLoot.push({ ...auxItem, ...atrib, price: Math.floor(auxItem.price * auxRarity.multip), objectId: uuid() })
+                    {amount: 1}
+            auxLoot.push({ ...auxItem, ...atrib, inv: 'I', price: Math.floor(auxItem.price * auxRarity.multip), objectId: uuid() })
         }
     }
     for (let i = auxLoot.length; i < 8; i++){
