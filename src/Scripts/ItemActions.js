@@ -10,7 +10,7 @@ const EquipControl = (item, player) => {
     }
     if (item.slot === 'Right-hand' || item.slot === 'Left-hand') {
         const DHand = player.character.equipment.find(object => object.slot === 'Doble-handed')
-        if (DHand !== undefined){
+        if (DHand !== undefined) {
             return Unequip(DHand, player)
         }
     }
@@ -25,7 +25,7 @@ const EquipControl = (item, player) => {
 export function Equip(item, player) {
     let auxPlayer = EquipControl(item, player)
     const invItem = auxPlayer.character.inventori.indexOf(auxPlayer.character.inventori.find(object => object.objectId === item.objectId))
-    auxPlayer.character.equipment.push({...player.character.inventori[invItem], inv: 'E'})
+    auxPlayer.character.equipment.push({ ...player.character.inventori[invItem], inv: 'E' })
     auxPlayer.character.inventori.splice(invItem, 1)
     console.log(auxPlayer)
     return auxPlayer
@@ -34,7 +34,7 @@ export function Equip(item, player) {
 export function Unequip(item, player) {
     let auxPlayer = JSON.parse(JSON.stringify(player))
     const equipItem = player.character.equipment.indexOf(player.character.equipment.find(object => object.objectId === item.objectId))
-    auxPlayer.character.inventori.push({...player.character.equipment[equipItem], inv: 'I'})
+    auxPlayer.character.inventori.push({ ...player.character.equipment[equipItem], inv: 'I' })
     auxPlayer.character.equipment.splice(equipItem, 1)
     return auxPlayer
 }
@@ -56,4 +56,27 @@ export function Use(item, player) {
         }
 
     }
+}
+
+export function Sell(item, player, amount) {
+    let auxPlayer = JSON.parse(JSON.stringify(player))
+    auxPlayer.character.gold += item.price * amount
+    if (item.amount !== undefined && item.amount > amount) {
+        let auxItem = auxPlayer.character.inventori.find(elem => elem.objectId === item.objectId)
+        let index = auxPlayer.character.inventori.indexOf(auxItem)
+        auxPlayer.character.inventori[index].amount -= amount
+    } else {
+        auxPlayer = DeleteItem(item, auxPlayer)
+    }
+    return auxPlayer
+}
+
+export function DeleteItem(item, player) {
+    let auxPlayer = JSON.parse(JSON.stringify(player))
+    if (item.inv === 'E') {
+        auxPlayer = Unequip(item, auxPlayer)
+    }
+    let index = auxPlayer.character.inventori.indexOf(auxPlayer.character.inventori.find(elem => elem.objectId === item.objectId))
+    auxPlayer.character.inventori.splice(index, 1)
+    return auxPlayer
 }
