@@ -58,6 +58,11 @@ const Battle = ({ enemy, player, setPlayer, setBlurWindow }) => {
             setBattle(auxBattle)
         }
     }
+    const handleClose = () => {
+        setPlayer(battle.player)
+        setBlurWindow(null)
+    }
+
     return (
         <div className="blur">
             <div className="battle">
@@ -68,7 +73,7 @@ const Battle = ({ enemy, player, setPlayer, setBlurWindow }) => {
                 <span>{battle.player.character.pv}/{player.character.maxPv}</span>
                 <ProgressBar Max={player.character.maxPv} Value={battle.player.character.pv} />
                 <span style={battle.status === 'fight'? battle.turn === 'enemy' ? { color: 'grey' } : null : { color: 'grey' }  } onClick={() => handleAtack()} >Atack</span>
-                <span onClick={() => setBlurWindow(null)}>Close</span>
+                <span onClick={() => handleClose()}>Close</span>
             </div>
             <span className="battleLateral">
                 <div className="battleLog">{battle.log.map(entry => {
