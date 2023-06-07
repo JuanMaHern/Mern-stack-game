@@ -8,7 +8,8 @@ export function EnemyGen (player, terms) {
         auxEnemy.lvl = auxLvl
         auxEnemy.pv *= auxLvl
         auxEnemy.exp *= auxLvl
-        auxEnemy.atq *= auxLvl
+        auxEnemy.dmg *= auxLvl
+        auxEnemy.def *= auxLvl
         auxEnemy.gold *= auxLvl
         return (auxEnemy)
     }
