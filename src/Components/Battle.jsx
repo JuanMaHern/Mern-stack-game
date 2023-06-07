@@ -96,14 +96,14 @@ const Battle = ({ enemy, player, setPlayer, setBlurWindow }) => {
                 <span>{battle.enemy.pv}/{enemy.pv} {battle.enemy.def === 0 ? null : `+${battle.enemy.def}`}</span>
                 <ProgressBar Max={enemy.pv} Value={battle.enemy.pv} />
                 <span className="avatar"><img src={player.character.avatar} alt={player.character.name} /></span>
-                <span>{battle.player.character.pv}/{player.character.maxPv} {battle.player.character.def === 0 ? null : `+${battle.player.character.def}`}</span>
-                <ProgressBar Max={player.character.maxPv} Value={battle.player.character.pv} />
+                <span>{battle.player.character.pv}/{battle.player.character.maxPv} {battle.player.character.def === 0 ? null : `+${battle.player.character.def}`}</span>
+                <ProgressBar Max={battle.player.character.maxPv} Value={battle.player.character.pv} />
                 <span style={battle.status === 'fight' ? battle.turn === 'enemy' ? { color: 'grey' } : null : { color: 'grey' }} onClick={() => handleAtack()} >Atack</span>
                 <span onClick={() => handleClose()}>Close</span>
             </div>
             <span className="battleLateral">
-                <div className="battleLog">{battle.log.map(entry => {
-                    return <span key={`entry${battle.log.indexOf(entry)}`} >{entry}</span>
+                <div className="battleLog">{battle.log.map((entry, index)=> {
+                    return <span key={`entry${index}}`} >{entry}</span>
                 })}</div>
                 <span>Loot</span>
                 <div className="battleLoot">{battle.loot.map(item => {

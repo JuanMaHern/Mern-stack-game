@@ -109,12 +109,15 @@
     border-radius: 5px;
 }
 
-.playerStatus span {
+.playerStatus h4 {
     text-align: center;
     width: 90%;
     text-align: center;
     border-bottom: 1px solid white;
     margin-bottom: 5px;
+}
+.playerStatus span {
+    text-transform: capitalize;
 }
 
 /* ---------------------------------------------inventori-------------------------------------------------- */

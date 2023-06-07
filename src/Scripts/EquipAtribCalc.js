@@ -1,6 +1,6 @@
 export function EquipAtribCalc(player) {
     let stats = {
-        maxPv: 50 + 50 * ((player.character.lvl * (player.character.lvl - 1)) / 2),
+        maxPv: 50 + 5 * ((player.character.lvl * (player.character.lvl - 1)) / 2),
         invCap: 20,
         dmg: Math.floor(player.character.atributes.str / 5),
         def: 0
