@@ -6,7 +6,7 @@ import { Loot } from "../Scripts/Loot";
 import { AddtoInv } from "../Scripts/AddtoInv";
 import { PlayerExp } from "../Scripts/PlayerExp";
 
-const Battle = ({ enemy, player, setPlayer, setBlurWindow }) => {
+const Battle = ({ enemy, player, setPlayer, setBlurWindow, handleWin }) => {
     const [battle, setBattle] = useState({
         player: JSON.parse(JSON.stringify(player)),
         enemy: JSON.parse(JSON.stringify(enemy)),
@@ -86,6 +86,9 @@ const Battle = ({ enemy, player, setPlayer, setBlurWindow }) => {
     }
     const handleClose = () => {
         savePlayer(battle.player)
+        if (battle.status === 'win'){
+            handleWin()
+        }
         setBlurWindow(null)
     }
 

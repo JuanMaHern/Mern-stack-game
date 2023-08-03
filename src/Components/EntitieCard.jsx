@@ -1,4 +1,4 @@
-const EntitieCard = ({ enemy, handleFight }) => {
+const EntitieCard = ({ enemy, handleFight, indx, indxPos }) => {
     return (
         <div className="entitieCard">
             <span>
@@ -13,7 +13,9 @@ const EntitieCard = ({ enemy, handleFight }) => {
                 <p>Damage: {enemy.dmg} </p>
                 <p>Defense: {enemy.def} </p>
             </span>
-            <button className="entitieCardB" onClick={() => handleFight(enemy)}>Fight</button>
+            {indxPos === indx ?
+                <button className="entitieCardB" onClick={() => handleFight(enemy)}>{enemy.type === 'Enemy' ? 'Fight': 'Collect'}</button>
+                : <button className="entitieCardB block" >{enemy.type === 'Enemy' ? 'Fight': 'Collect'}</button>}
         </div>
     )
 }

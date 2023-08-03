@@ -2,9 +2,7 @@ import { v4 as uuid } from "uuid"
 import itemDb from "../JSON/Items.json"
 
 const dropRate = (percent) => {
-    console.log(percent)
     const auxRandom = Math.floor(Math.random() * 100 + 1)
-    console.log(auxRandom)
     return percent >= auxRandom ? true : false
 }
 
@@ -34,6 +32,17 @@ export function Loot(enemy) {
     }
     for (let i = auxLoot.length; i < 8; i++){
         auxLoot.push('?')
+    }
+    return auxLoot
+}
+
+export function ResourceLoot(resource) {
+    let auxLoot = []
+    for (let item of resource.loot) {
+        if (dropRate(item.prcn)) {
+            const auxItem = itemDb.find(elem => elem.id === item.id)
+            auxLoot.push({...auxItem, inv: 'I', objectId: uuid(), amount: Math.floor(Math.random() * 3 + 1)})
+        }
     }
     return auxLoot
 }
