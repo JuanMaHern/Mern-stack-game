@@ -8,7 +8,9 @@ const DbLoader = (enemies, resources) => {
         loadedArray.push({...Entities.find(elem => elem.id === indx), type: 'Enemy'})
     }
     for (let indx of resources){
-        loadedArray.push({...Resources.find(elem => elem.id === indx), type: 'Resource'})
+        const res = Resources.find(elem => elem.id === indx)
+        const type = res.proffesion !== undefined ? {type: 'Resource'}: {type: 'Loot'}
+        loadedArray.push({...res, ...type})
     }
     return loadedArray
 }

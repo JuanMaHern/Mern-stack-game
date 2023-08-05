@@ -4,14 +4,21 @@ export function AddtoInv (inv, item) {
         auxInv.push(item)
     } else{ 
         let auxItem = undefined
+        let auxAmount = item.amount
         for ( let elem of auxInv){ 
             if (elem.id === item.id && elem.amount < 20 && auxItem === undefined){
                 auxItem = elem
-                auxInv[auxInv.indexOf(elem)].amount += 1
+                if (auxItem.amount + auxAmount > 20){
+                    auxAmount = auxItem.amount + auxAmount- 20
+                    auxInv[auxInv.indexOf(elem)].amount = 20
+                    auxItem = undefined
+                } else {
+                    auxInv[auxInv.indexOf(elem)].amount += auxAmount
+                }
             }
         }
         if (auxItem === undefined) {
-            auxInv.push(item)
+            auxInv.push({...item, amount: auxAmount})
         }
     }
     return auxInv

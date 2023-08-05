@@ -9,6 +9,14 @@
                 "Resources": [
                     1
                 ]
+            },
+            {
+                "Location": "Plains",
+                "Enemies": [
+                ],
+                "Resources": [
+                    3
+                ]
             }
         ]
     }

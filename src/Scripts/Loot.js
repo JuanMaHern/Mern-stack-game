@@ -41,7 +41,8 @@ export function ResourceLoot(resource) {
     for (let item of resource.loot) {
         if (dropRate(item.prcn)) {
             const auxItem = itemDb.find(elem => elem.id === item.id)
-            auxLoot.push({...auxItem, inv: 'I', objectId: uuid(), amount: Math.floor(Math.random() * 3 + 1)})
+            const amount = auxItem.type === "Material" ? {amount: Math.floor(Math.random() * 3 + 1)} : null
+            auxLoot.push({...auxItem, inv: 'I', objectId: uuid(), ...amount })
         }
     }
     return auxLoot
