@@ -7,7 +7,6 @@ const LootShow = ({ array }) => {
         let auxElem = itemDb.find(item => item.id === elem.id)
         arrayDb.push({name: auxElem.name, img: auxElem.img, rarity: 'Common'})
     }
-    console.log(arrayDb)
     return (
         <div className="lootShow">
             {arrayDb.map(elem => {

@@ -13,6 +13,12 @@ const ItemMenu = ({ item, pos, player, setPlayer, setIMenu, handleInfoWindow, dW
             setPlayer(DeleteItem(item, player))
             setIMenu(null)
         }
+        if (type === 'take') {
+            setIMenu()
+        }
+        if (type === 'store') {
+            setIMenu()
+        }
         if (type === 'buy') {
             setIMenu(<SellWindow item={item} player={player} setPlayer={setPlayer} pos={pos} setIMenu={setIMenu} />)
         }
@@ -39,11 +45,16 @@ const ItemMenu = ({ item, pos, player, setPlayer, setIMenu, handleInfoWindow, dW
                 <>
                     <span onClick={() => handleAction('buy')}>Buy</span>
                 </> :
-                <>
-                    {action}
-                    {dWindow === 'Shop' ? <span onClick={() => handleAction('sell')}>Sell</span> : null}
-                    <span onClick={() => handleAction('delete')}>Delete</span>
-                </>
+                item.inv === 'PS' ?
+                    <>
+                        <span onClick={() => handleAction('take')}>Take</span>
+                    </> :
+                    <>
+                        {action}
+                        {dWindow === 'Shop' ? <span onClick={() => handleAction('sell')}>Sell</span> : null}
+                        {dWindow === 'Stash' ? <span onClick={() => handleAction('store')}>Store</span> : null}
+                        <span onClick={() => handleAction('delete')}>Delete</span>
+                    </>
             }
 
 

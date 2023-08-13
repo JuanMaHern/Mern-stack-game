@@ -6,6 +6,7 @@ const NavBar = ({ setDWindow }) => {
             <span onClick={() => setDWindow('Exploration')} >Exploration</span>
             {/* <span onClick={() => setDWindow('Arena')} >Arena</span> */}
             <span onClick={() => setDWindow('Shop')} >Shop</span>
+            <span onClick={() => setDWindow('Stash')} >Stash</span>
         </div>
     )
 }

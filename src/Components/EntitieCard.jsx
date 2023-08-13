@@ -1,7 +1,6 @@
 import LootShow from "./LootShow"
 
 const EntitieCard = ({ enemy, handleFight, indx, indxPos, tool }) => {
-    console.log(enemy)
     return (
         <div className="entitieCard">
             <span id="info">

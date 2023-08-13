@@ -2,6 +2,7 @@ import Arena from "./Arena"
 import Exploration from "./Exploration"
 import PlayerStatus from "./PlayerStatus"
 import Shop from "./Shop"
+import Stash from "./Stash"
 
 const DisplayWindow = ({ player, setPlayer, dWindow, setBlurWindow }) => {
 
@@ -18,6 +19,9 @@ const DisplayWindow = ({ player, setPlayer, dWindow, setBlurWindow }) => {
             break
         case 'Shop':
             display = <Shop player={player} setPlayer={setPlayer} setBlurWindow={setBlurWindow} />
+            break
+        case 'Stash':
+            display = <Stash player={player} setPlayer={setPlayer} setBlurWindow={setBlurWindow} />
             break
         default:
             break
