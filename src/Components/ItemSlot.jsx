@@ -6,7 +6,7 @@ const ItemSlot = ({ item, handleIMenu }) => {
         </>
     }
     return (
-        <div className="itemSlot" id={item.rarity}>
+        <div className="itemSlot" id={item.rarity} title={item.name} >
             {itm}
         </div>
     )

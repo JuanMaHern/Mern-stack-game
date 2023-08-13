@@ -1,4 +1,4 @@
-import { EquipAtribCalc } from "../Scripts/EquipAtribCalc"
+import { EquipAtribCalc } from "../Scripts/PlayerControl"
 
 const PlayerStatus = ({ player, setPlayer }) => {
     let skillArray= []

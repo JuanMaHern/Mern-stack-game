@@ -1,6 +1,7 @@
 import Arena from "./Arena"
 import Exploration from "./Exploration"
 import PlayerStatus from "./PlayerStatus"
+import Shop from "./Shop"
 
 const DisplayWindow = ({ player, setPlayer, dWindow, setBlurWindow }) => {
 
@@ -16,6 +17,7 @@ const DisplayWindow = ({ player, setPlayer, dWindow, setBlurWindow }) => {
             display = <Arena player={player} setPlayer={setPlayer} setBlurWindow={setBlurWindow} />
             break
         case 'Shop':
+            display = <Shop player={player} setPlayer={setPlayer} setBlurWindow={setBlurWindow} />
             break
         default:
             break

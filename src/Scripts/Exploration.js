@@ -25,7 +25,7 @@ export function ExplorationGen (Location) {
     }
     expEncounter = DbLoader(auxLocation.Enemies, auxLocation.Resources)
     let explorationEntities = []
-    for (let i = 0; i<= 4; i++){
+    for (let i = 0; i<= 9; i++){
         explorationEntities.push({...expEncounter[Math.floor(Math.random()*expEncounter.length)], indx: i})
     }
     return explorationEntities

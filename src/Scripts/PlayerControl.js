@@ -1,3 +1,5 @@
+
+/* Player atribute loader */
 export function EquipAtribCalc(player) {
     let stats = {
         maxPv: 50 + 5 * ((player.character.lvl * (player.character.lvl - 1)) / 2),
@@ -24,5 +26,19 @@ export function EquipAtribCalc(player) {
     auxPlayer.character.invCap = stats.invCap + Math.floor(auxPlayer.character.atributes.str / 5)
     auxPlayer.character.maxPv = stats.maxPv + Math.floor(auxPlayer.character.atributes.const * 5)
     auxPlayer.character.def = stats.def + Math.floor(player.character.atributes.const / 5)
+    return auxPlayer
+}
+
+export function PlayerExp (player, exp) {
+    let auxPlayer = JSON.parse(JSON.stringify(player))
+    const maxExp = 100*player.character.lvl*player.character.lvl
+    auxPlayer.character.exp += exp
+    if (auxPlayer.character.exp >= maxExp){
+        auxPlayer.character.lvl += 1
+        auxPlayer.character.atribPoints += 5
+        auxPlayer = EquipAtribCalc(auxPlayer)
+        auxPlayer.character.pv = auxPlayer.character.maxPv
+        auxPlayer.character.def = player.character.def
+    }
     return auxPlayer
 }

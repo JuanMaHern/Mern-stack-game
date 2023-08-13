@@ -1,3 +1,5 @@
+import { AddtoInv } from "./InventoriControl"
+
 const EquipControl = (item, player) => {
     let auxPlayer = JSON.parse(JSON.stringify(player))
     const equipItem = player.character.equipment.find(object => object.slot === item.slot)
@@ -68,6 +70,13 @@ export function Sell(item, player, amount) {
     } else {
         auxPlayer = DeleteItem(item, auxPlayer)
     }
+    return auxPlayer
+}
+export function Buy(item, player, amount) {
+    let auxPlayer = JSON.parse(JSON.stringify(player))
+    auxPlayer.character.gold -= item.price * amount
+    let auxItem = item.type === 'Weapon' || item.type === 'Armor' ? item: {...item, amount: amount}
+    auxPlayer.character.inventori = AddtoInv(auxPlayer.character.inventori, auxItem)
     return auxPlayer
 }
 

@@ -17,32 +17,32 @@ const randomRarity = () => {
                 { rar: 'Legendary', multip: 2.5 }
 }
 
-export function Loot(enemy) {
+export function Loot(array) {
     let auxLoot = []
-    for (let item of enemy.loot) {
+    for (let item of array) {
         if (dropRate(item.prcn)) {
             const auxItem = itemDb.find(elem => elem.id === item.id)
             const auxRarity = randomRarity()
             const atrib = auxItem.type === 'Weapon' ?
                 { rarity: auxRarity.rar, damage: Math.floor(auxItem.damage * auxRarity.multip) } :
                 auxItem.type === 'Armor' ? { rarity: auxRarity.rar, defense: Math.floor(auxItem.defense * auxRarity.multip) } :
-                    {amount: 1}
+                    { amount: 1 }
             auxLoot.push({ ...auxItem, ...atrib, inv: 'I', price: Math.floor(auxItem.price * auxRarity.multip), objectId: uuid() })
         }
     }
-    for (let i = auxLoot.length; i < 8; i++){
+    for (let i = auxLoot.length; i < 8; i++) {
         auxLoot.push('?')
     }
     return auxLoot
 }
 
-export function ResourceLoot(resource) {
+export function ResourceLoot(array) {
     let auxLoot = []
-    for (let item of resource.loot) {
+    for (let item of array) {
         if (dropRate(item.prcn)) {
             const auxItem = itemDb.find(elem => elem.id === item.id)
-            const amount = auxItem.type === "Material" ? {amount: Math.floor(Math.random() * 3 + 1)} : null
-            auxLoot.push({...auxItem, inv: 'I', objectId: uuid(), ...amount })
+            const amount = auxItem.type === "Material" ? { amount: Math.floor(Math.random() * 3 + 1) } : auxItem.type === "Tool" ? null : { amount: 1 }
+            auxLoot.push({ ...auxItem, inv: 'I', objectId: uuid(), ...amount })
         }
     }
     return auxLoot

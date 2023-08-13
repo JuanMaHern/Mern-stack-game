@@ -2,13 +2,12 @@ import EntitieCard from "./EntitieCard"
 import Battle from "./Battle"
 import { useState } from "react"
 import { ExplorationGen } from "../Scripts/Exploration"
-import { AddtoInv } from "../Scripts/AddtoInv"
-import { ResourceLoot } from "../Scripts/Loot"
-import { InvProfSearch } from "../Scripts/InvSearch"
+import { AddtoInv, InvProfSearch } from "../Scripts/InventoriControl"
+import { ResourceLoot } from "../Scripts/LootControl"
 
 const Exploration = ({ player, setPlayer, setBlurWindow }) => {
     const [engage, setEngage] = useState({ location: 'none', enemies: [], indxPos: 0 })
-    if (engage.enemies.length > 1 && engage.indxPos < 5) {
+    if (engage.enemies.length > 1 && engage.indxPos < 10) {
         console.log(engage.enemies[engage.indxPos])
         if (engage.enemies[engage.indxPos].type === 'Resource') {
             if (!InvProfSearch(player.character.inventori, engage.enemies[engage.indxPos].proffesion)) {
@@ -27,7 +26,7 @@ const Exploration = ({ player, setPlayer, setBlurWindow }) => {
         } else {
             let auxPlayer = JSON.parse(JSON.stringify(player))
             let auxInv = auxPlayer.character.inventori
-            for (let item of ResourceLoot(oponent)) {
+            for (let item of ResourceLoot(oponent.loot)) {
                 auxInv = AddtoInv(auxInv, item)
             }
             auxPlayer.character.inventori = auxInv
@@ -56,12 +55,14 @@ const Exploration = ({ player, setPlayer, setBlurWindow }) => {
                 <span className="beach" onClick={() => handleLocation('Beach')}>Beach</span>
             </div>
             <div style={engage.location === 'none' ? { display: 'none' } : null} className="exp-Engaged" >
-                {engage.location}
+                <span className="exp-Title">
+                    <span className="exp-Back" onClick={() => setEngage({ location: 'none', enemies: [] })}>back</span>
+                    <p>{engage.location}</p>
+                </span>
                 {engage.enemies.map(entitie => {
                     const tool = InvProfSearch(player.character.inventori, entitie.proffesion)
                     return <EntitieCard enemy={entitie} handleFight={handleFight} indx={entitie.indx} indxPos={engage.indxPos} tool={tool} />
                 })}
-                <span onClick={() => setEngage({ location: 'none', enemies: [] })}>back</span>
             </div>
         </div>
     )

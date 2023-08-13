@@ -1,8 +1,9 @@
-import { EquipAtribCalc } from "../Scripts/EquipAtribCalc"
-import { DeleteItem, Equip, Unequip, Use } from "../Scripts/ItemActions"
+import { EquipAtribCalc } from "../Scripts/PlayerControl"
+import { DeleteItem, Equip, Unequip, Use } from "../Scripts/ItemControl"
 import SellWindow from "./SellWindow"
 
-const ItemMenu = ({ item, pos, player, setPlayer, setIMenu, handleInfoWindow }) => {
+const ItemMenu = ({ item, pos, player, setPlayer, setIMenu, handleInfoWindow, dWindow }) => {
+    console.log(item)
     const action = item.type === 'Consumable' ?
         <span onClick={() => handleAction('consumable')} >Use</span> :
         item.type === 'Material' ? null :
@@ -12,8 +13,11 @@ const ItemMenu = ({ item, pos, player, setPlayer, setIMenu, handleInfoWindow }) 
             setPlayer(DeleteItem(item, player))
             setIMenu(null)
         }
-        if (type === 'sell'){
-            setIMenu(<SellWindow item={item} player={player} setPlayer={setPlayer} pos={pos} setIMenu={setIMenu} /> )
+        if (type === 'buy') {
+            setIMenu(<SellWindow item={item} player={player} setPlayer={setPlayer} pos={pos} setIMenu={setIMenu} />)
+        }
+        if (type === 'sell') {
+            setIMenu(<SellWindow item={item} player={player} setPlayer={setPlayer} pos={pos} setIMenu={setIMenu} />)
         }
         if (type === 'consumable') {
             setPlayer(Use(item, player))
@@ -30,10 +34,21 @@ const ItemMenu = ({ item, pos, player, setPlayer, setIMenu, handleInfoWindow }) 
     }
     return (
         <div className="itemMenu" style={{ top: pos.y, left: pos.x - 70 }}>
-            {action}
             <span onClick={() => handleInfoWindow(item)}>Info</span>
-            <span onClick={() => handleAction('sell')}>Sell</span>
-            <span onClick={() => handleAction('delete')}>Delete</span>
+            {item.inv === 'S' ?
+                <>
+                    <span onClick={() => handleAction('buy')}>Buy</span>
+                </> :
+                <>
+                    {action}
+                    {dWindow === 'Shop' ? <span onClick={() => handleAction('sell')}>Sell</span> : null}
+                    <span onClick={() => handleAction('delete')}>Delete</span>
+                </>
+            }
+
+
+
+
             <span onClick={() => setIMenu(null)}>Close</span>
         </div>
     )

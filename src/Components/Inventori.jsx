@@ -1,9 +1,9 @@
-import { FillInventori } from "../Scripts/FillInventori"
+import { FillInventori } from "../Scripts/InventoriControl"
 import ItemSlot from "./ItemSlot"
 import { v4 as uuid } from 'uuid'
 
-const Inventori = ({ inventori, invCap, handleIMenu }) => {
-    const InvFilled = FillInventori(inventori, invCap)
+const Inventori = ({ inventori, invCap, handleIMenu, source }) => {
+    const InvFilled = FillInventori(inventori, invCap, source)
     return (
         <div className="inventori">
             {InvFilled.map(item => {

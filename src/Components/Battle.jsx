@@ -2,9 +2,9 @@ import { useState } from "react"
 import ProgressBar from "./ProgressBar"
 import ItemSlot from "./ItemSlot";
 import { v4 as uuid } from 'uuid'
-import { Loot } from "../Scripts/Loot";
-import { AddtoInv } from "../Scripts/AddtoInv";
-import { PlayerExp } from "../Scripts/PlayerExp";
+import { Loot } from "../Scripts/LootControl";
+import { AddtoInv } from "../Scripts/InventoriControl";
+import { PlayerExp } from "../Scripts/PlayerControl";
 
 const Battle = ({ enemy, player, setPlayer, setBlurWindow, handleWin }) => {
     const [battle, setBattle] = useState({
@@ -75,7 +75,7 @@ const Battle = ({ enemy, player, setPlayer, setBlurWindow, handleWin }) => {
                 if (auxBattle.player.character.lvl > player.character.lvl) {
                     auxBattle.log.push('Lvl up')
                 }
-                auxBattle.loot = Loot(enemy)
+                auxBattle.loot = Loot(enemy.loot)
                 savePlayer(auxBattle.player)
             } else {
                 auxBattle.turn = 'enemy'
