@@ -80,6 +80,13 @@ export function Buy(item, player, amount) {
     return auxPlayer
 }
 
+export function Store(item, player, amount) {
+
+}
+export function Take(item, player, amount) {
+    
+}
+
 export function DeleteItem(item, player) {
     let auxPlayer = JSON.parse(JSON.stringify(player))
     if (item.inv === 'E') {

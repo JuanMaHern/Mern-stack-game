@@ -14,16 +14,16 @@ const ItemMenu = ({ item, pos, player, setPlayer, setIMenu, handleInfoWindow, dW
             setIMenu(null)
         }
         if (type === 'take') {
-            setIMenu()
+            setIMenu(<SellWindow item={item} player={player} setPlayer={setPlayer} pos={pos} setIMenu={setIMenu} dWindow={dWindow} />)
         }
         if (type === 'store') {
-            setIMenu()
+            setIMenu(<SellWindow item={item} player={player} setPlayer={setPlayer} pos={pos} setIMenu={setIMenu} dWindow={dWindow} />)
         }
         if (type === 'buy') {
-            setIMenu(<SellWindow item={item} player={player} setPlayer={setPlayer} pos={pos} setIMenu={setIMenu} />)
+            setIMenu(<SellWindow item={item} player={player} setPlayer={setPlayer} pos={pos} setIMenu={setIMenu} dWindow={dWindow} />)
         }
         if (type === 'sell') {
-            setIMenu(<SellWindow item={item} player={player} setPlayer={setPlayer} pos={pos} setIMenu={setIMenu} />)
+            setIMenu(<SellWindow item={item} player={player} setPlayer={setPlayer} pos={pos} setIMenu={setIMenu} dWindow={dWindow} />)
         }
         if (type === 'consumable') {
             setPlayer(Use(item, player))

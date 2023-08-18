@@ -4,6 +4,7 @@ import { useState } from "react"
 import { ExplorationGen } from "../Scripts/Exploration"
 import { AddtoInv, InvProfSearch } from "../Scripts/InventoriControl"
 import { ResourceLoot } from "../Scripts/LootControl"
+import ToolWork from "./ToolWork"
 
 const Exploration = ({ player, setPlayer, setBlurWindow }) => {
     const [engage, setEngage] = useState({ location: 'none', enemies: [], indxPos: 0 })
@@ -24,14 +25,15 @@ const Exploration = ({ player, setPlayer, setBlurWindow }) => {
         if (oponent.type === "Enemy") {
             setBlurWindow(<Battle enemy={oponent} player={player} setPlayer={setPlayer} setBlurWindow={setBlurWindow} handleWin={handleWin} />)
         } else {
-            let auxPlayer = JSON.parse(JSON.stringify(player))
+            setBlurWindow(<ToolWork player={player} setPlayer={setPlayer} resource={oponent} setBlurWindow={setBlurWindow} handleWin={handleWin} />)
+            /* let auxPlayer = JSON.parse(JSON.stringify(player))
             let auxInv = auxPlayer.character.inventori
             for (let item of ResourceLoot(oponent.loot)) {
                 auxInv = AddtoInv(auxInv, item)
             }
             auxPlayer.character.inventori = auxInv
             setPlayer(auxPlayer)
-            handleWin()
+            handleWin() */
         }
 
     }

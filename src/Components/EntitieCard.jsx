@@ -22,7 +22,7 @@ const EntitieCard = ({ enemy, handleFight, indx, indxPos, tool }) => {
                 </span>
             {indxPos === indx ?
                 <button className="entitieCardB" onClick={() => handleFight(enemy)}>{enemy.type === 'Enemy' ? 'Fight' : 'Collect'}</button>
-                : <button className="entitieCardB block" >{enemy.type === 'Enemy' ? 'Fight' : tool ? 'Collect' : 'No tool'}</button>}
+                : <button className="entitieCardB block" >{enemy.type === 'Enemy' ? 'Fight' : tool !== undefined ? 'Collect' : 'No tool'}</button>}
         </div>
     )
 }

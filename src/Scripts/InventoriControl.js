@@ -26,25 +26,25 @@ export function DbToInv(inv, source) {
 }
 
 /* player has or not tool for resource  */
-export function InvProfSearch (inv, term) {
+export function InvProfSearch(inv, term) {
     const item = inv.find(elem => elem.proffesion === term)
-    return item !== undefined ? true: false
+    return item
 }
 
 /* Add item to Inventori */
-export function AddtoInv (inv, item) {
+export function AddtoInv(inv, item) {
     console.log(item)
     let auxInv = JSON.parse(JSON.stringify(inv))
-    if (item.type === 'Weapon' || item.type === 'Armor'){
-        auxInv.push(item)
-    } else{ 
+    if (item.type === 'Weapon' || item.type === 'Armor' || item.type === 'Tool') {
+        auxInv.push({...item, inv: 'I'})
+    } else {
         let auxItem = undefined
         let auxAmount = item.amount
-        for ( let elem of auxInv){ 
-            if (elem.id === item.id && elem.amount < 20 && auxItem === undefined){
+        for (let elem of auxInv) {
+            if (elem.id === item.id && elem.amount < 20 && auxItem === undefined) {
                 auxItem = elem
-                if (auxItem.amount + auxAmount > 20){
-                    auxAmount = auxItem.amount + auxAmount- 20
+                if (auxItem.amount + auxAmount > 20) {
+                    auxAmount = auxItem.amount + auxAmount - 20
                     auxInv[auxInv.indexOf(elem)].amount = 20
                     auxItem = undefined
                 } else {
@@ -53,10 +53,23 @@ export function AddtoInv (inv, item) {
             }
         }
         if (auxItem === undefined) {
-            auxInv.push({...item, amount: auxAmount})
+            for (let i = auxAmount; i >= 1; i -= 20) {
+                auxInv.push({ ...item, amount: i > 20 ? 20 : i, inv: 'I' })
+            }
         }
     }
+    console.log(auxInv)
     return auxInv
+}
+
+/* Add array to Inv */
+export function AddArraytoInv(inv, array) {
+    let auxArray = JSON.parse(JSON.stringify(inv))
+    for (let elem of array) {
+        AddtoInv(auxArray, elem)
+    }
+    console.log(auxArray)
+    return auxArray
 }
 
 /* Fill inventori slots from array */
