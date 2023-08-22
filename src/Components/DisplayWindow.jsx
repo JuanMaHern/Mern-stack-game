@@ -1,5 +1,6 @@
 import Arena from "./Arena"
 import Exploration from "./Exploration"
+import Forge from "./Forge"
 import PlayerStatus from "./PlayerStatus"
 import Shop from "./Shop"
 import Stash from "./Stash"
@@ -18,10 +19,13 @@ const DisplayWindow = ({ player, setPlayer, dWindow, setBlurWindow }) => {
             display = <Arena player={player} setPlayer={setPlayer} setBlurWindow={setBlurWindow} />
             break
         case 'Shop':
-            display = <Shop player={player} setPlayer={setPlayer} setBlurWindow={setBlurWindow} />
+            display = <Shop player={player} setPlayer={setPlayer} setBlurWindow={setBlurWindow} dWindow={dWindow} />
             break
         case 'Stash':
-            display = <Stash player={player} setPlayer={setPlayer} setBlurWindow={setBlurWindow} />
+            display = <Stash player={player} setPlayer={setPlayer} setBlurWindow={setBlurWindow} dWindow={dWindow} />
+            break
+        case 'Forge':
+            display = <Forge player={player} setPlayer={setPlayer} />
             break
         default:
             break

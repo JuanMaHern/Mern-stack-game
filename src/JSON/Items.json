@@ -86,6 +86,7 @@
         "id": 9,
         "name": "Axe",
         "desc": "Trees don't like it",
+        "slot": "Axe",
         "type": "Tool",
         "proffesion" : "Logging",
         "price": 50,
@@ -95,6 +96,7 @@
         "id": 10,
         "name": "Pickaxe",
         "desc": "An axe with a pick",
+        "slot": "Pickaxe",
         "type": "Tool",
         "proffesion" : "Mining",
         "price": 50,
@@ -117,5 +119,14 @@
         "proffesion" : "Farming",
         "price": 5,
         "img": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAJpSURBVHja7JZPaNNQHMe/6R9Bh1jZEGsT+g7C6mlzOOvBuTL/XDwJHvS4Xbx42EWEHYJU8OiK4EnYwV08OBBEBAXtjOBKN6Gr1EF1RpIiCv5bWizBGS97j/QtWRJb3KW/40vyPt/fN7/3fj/BsixsR4SwTdEF/7eIOC0KgsAvOVWgEATEF3HEzzc5WUY6kwEA1FQVuqpiMpttS4zgdJxsGTNoXJJa3vmkaS1CAGAym3UVwnM8wfdnZpAghD3jBfBCOFcYPKjVwvmJCevq+DgDihsiqBi6zgsqKkrw4uJjeGQECUJQ27BUV1W2cVySIBLS4sqD2VlXZwKBKYBuZodQMYV8vsXufzpOfEXbQbytdjF2R9q+QERCPG2jAuwCRUKQk2W3O8Db6gQhWOgZw591oDTXhIUwUqfD2LN0HcvvCohFduPcxUsMXvORrVfGVk6WEZckTBUHcCh2B/Ufo4j2X4BydxCPvjyGeSqGinkPCz1jnb2rRZt1FeU1vn8zYK5HEUnFsSu5H+9fVDB6/LKv7wOB7f+sOP8KyUwKH1c0mMYaNF3DTuM3Dh5OdbQ7MZsB4MZwCekzJ1B+WkLjVwNfjSb69vWi92gS83NPHDegle1WYCHfNvXfwtBQGY3VFUjJvfj5chXN0mdEwyFMFQc2XZvtnmMAwLHGM3yovkVCCiN9dg0Pl67gyEkTBwZ34Nqy2dKUdJ9VvVWTYA3CzzmmGRfyeVTrBlu7fXPakePZneh/st/HbkIWFQW6qqJaNyjQtTt5gTdNIFSEU4daVBQ8f1NmWW41gfgFe41BnpOIL3B3vO2COxF/BwAHeA3VNmJKtwAAAABJRU5ErkJggg=="
+    },
+    {
+        "id": 13,
+        "name": "Ruby",
+        "desc": "Shiny red",
+        "type": "Gem",
+        "proffesion" : "Mining",
+        "price": 30,
+        "img": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAEISURBVHjaYvz//z/DQAAmhgECoxaPWkwzwEKMIkZGRnQh9DyIooCYLMpChmP//zp6AkWAzdriP7rlBD1DjOuQfAy39PexkwwMDAwMv9ZvZmAL9GXgLs2H+5wYM5nI9SmrlTnEt4G+DL/Wb2b42j0RWxRQNagxwKvr1xnEaJSq//86egIevMjg1/rNcMvfW7kQ7WuSfYxsOcxSmuZjdN9SYinJBciTti6s8cvAwMBw++9vOJsmQY3N8tt/f9PWx9gsIMdSUguQ/++tXBiOXrmEVY0qMyuD+vunRJs5JGonRsFjexisdfTw+pZWZTU8yJFTNLqlRJlJhsVUqRYZR5u3oxaPWkwtABgAZVN82oeafJ4AAAAASUVORK5CYII="
     }
 ]

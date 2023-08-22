@@ -5,7 +5,7 @@ import { DbToInv } from "../Scripts/InventoriControl"
 import ItemMenu from "./ItemMenu"
 import InfoWindow from "./InfoWindow"
 
-const Shop = ({ player, setPlayer, setBlurWindow }) => {
+const Shop = ({ player, setPlayer, setBlurWindow, dWindow }) => {
 
     const [iMenu, setIMenu] = useState(null)
     const handleInfoWindow = (item) => {
@@ -13,8 +13,7 @@ const Shop = ({ player, setPlayer, setBlurWindow }) => {
         setBlurWindow(<InfoWindow item={item} setPlayer={setPlayer} setBlurWindow={setBlurWindow} />)
     }
     const handleIMenu = (item) => {
-        console.log(item)
-        setIMenu(<ItemMenu item={item} pos={{ x: event.x, y: event.y }} player={player} setPlayer={setPlayer} setIMenu={setIMenu} handleInfoWindow={handleInfoWindow} />)
+        setIMenu(<ItemMenu item={item} pos={{ x: event.x, y: event.y }} player={player} setPlayer={setPlayer} setIMenu={setIMenu} handleInfoWindow={handleInfoWindow} dWindow={dWindow} />)
     }
 
     return (

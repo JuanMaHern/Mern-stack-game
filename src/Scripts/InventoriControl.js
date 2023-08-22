@@ -1,4 +1,5 @@
 import itemDb from "../JSON/Items.json"
+import { v4 as uuid } from "uuid"
 
 /* item rarity multiplier */
 const atribMultip = (item) => {
@@ -26,17 +27,16 @@ export function DbToInv(inv, source) {
 }
 
 /* player has or not tool for resource  */
-export function InvProfSearch(inv, term) {
-    const item = inv.find(elem => elem.proffesion === term)
+export function InvProfSearch(player, term) {
+    const item = player.character.equipment.find(elem => elem.proffesion === term)
     return item
 }
 
 /* Add item to Inventori */
 export function AddtoInv(inv, item) {
-    console.log(item)
     let auxInv = JSON.parse(JSON.stringify(inv))
     if (item.type === 'Weapon' || item.type === 'Armor' || item.type === 'Tool') {
-        auxInv.push({...item, inv: 'I'})
+        auxInv.push(item)
     } else {
         let auxItem = undefined
         let auxAmount = item.amount
@@ -54,41 +54,35 @@ export function AddtoInv(inv, item) {
         }
         if (auxItem === undefined) {
             for (let i = auxAmount; i >= 1; i -= 20) {
-                auxInv.push({ ...item, amount: i > 20 ? 20 : i, inv: 'I' })
+                auxInv.push({ ...item, amount: i > 20 ? 20 : i, objectId: uuid() })
             }
         }
     }
-    console.log(auxInv)
     return auxInv
 }
 
 /* Add array to Inv */
-export function AddArraytoInv(inv, array) {
+/* export function AddArraytoInv(inv, array) {
     let auxArray = JSON.parse(JSON.stringify(inv))
     for (let elem of array) {
         AddtoInv(auxArray, elem)
     }
     console.log(auxArray)
     return auxArray
-}
+} */
 
 /* Fill inventori slots from array */
 export function FillInventori(inventori, cap, source) {
     let auxInv = []
     if (source === 'E') {
-        let order = ['Right-hand', 'Left-hand', 'Head', 'Armor', 'Belt', 'Boots']
+        let order = ['Right-hand', 'Left-hand', 'Head', 'Armor', 'Belt', 'Boots', 'Axe', 'Pickaxe']
         for (let i = 0; i < cap; i++) {
             if (i === 0) {
                 const auxItem = inventori.find(elem => elem.type === 'Weapon')
                 auxItem === undefined ? auxInv.push('?') : auxInv.push(auxItem)
             } else {
-                if (i >= 6) {
-                    const auxItem = inventori.find(elem => elem.type === 'Consumable')
-                    auxItem === undefined ? auxInv.push('?') : auxInv.push(auxItem)
-                } else {
-                    const auxItem = inventori.find(elem => elem.slot === order[i])
-                    auxItem === undefined ? auxInv.push('?') : auxInv.push(auxItem)
-                }
+                const auxItem = inventori.find(elem => elem.slot === order[i])
+                auxItem === undefined ? auxInv.push('?') : auxInv.push(auxItem)
             }
         }
 

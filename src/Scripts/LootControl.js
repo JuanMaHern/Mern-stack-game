@@ -6,8 +6,8 @@ const dropRate = (percent) => {
     return percent >= auxRandom ? true : false
 }
 
-const randomRarity = () => {
-    const auxRandom = Math.floor(Math.random() * 100 + 1)
+export function randomRarity (term) {
+    const auxRandom = Math.floor(Math.random() * 100 + (1*term))
     return auxRandom < 50 ?
         { rar: 'Common', multip: 1 } :
         auxRandom < 75 ?
@@ -22,7 +22,7 @@ export function Loot(array) {
     for (let item of array) {
         if (dropRate(item.prcn)) {
             const auxItem = itemDb.find(elem => elem.id === item.id)
-            const auxRarity = randomRarity()
+            const auxRarity = randomRarity(1)
             const atrib = auxItem.type === 'Weapon' ?
                 { rarity: auxRarity.rar, damage: Math.floor(auxItem.damage * auxRarity.multip) } :
                 auxItem.type === 'Armor' ? { rarity: auxRarity.rar, defense: Math.floor(auxItem.defense * auxRarity.multip) } :

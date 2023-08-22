@@ -1,9 +1,7 @@
-import { EquipAtribCalc } from "../Scripts/PlayerControl"
-import { DeleteItem, Equip, Unequip, Use } from "../Scripts/ItemControl"
+import { DeleteItem, Equip, Store, Take, Unequip, Use } from "../Scripts/ItemControl"
 import SellWindow from "./SellWindow"
 
 const ItemMenu = ({ item, pos, player, setPlayer, setIMenu, handleInfoWindow, dWindow }) => {
-    console.log(item)
     const action = item.type === 'Consumable' ?
         <span onClick={() => handleAction('consumable')} >Use</span> :
         item.type === 'Material' ? null :
@@ -19,6 +17,14 @@ const ItemMenu = ({ item, pos, player, setPlayer, setIMenu, handleInfoWindow, dW
         if (type === 'store') {
             setIMenu(<SellWindow item={item} player={player} setPlayer={setPlayer} pos={pos} setIMenu={setIMenu} dWindow={dWindow} />)
         }
+        if (type === 'takeAll') {
+            setPlayer(Take(item, player, item.amount))
+            setIMenu(null)
+        }
+        if (type === 'storeAll') {
+            setPlayer(Store(item, player, item.amount))
+            setIMenu(null)
+        }
         if (type === 'buy') {
             setIMenu(<SellWindow item={item} player={player} setPlayer={setPlayer} pos={pos} setIMenu={setIMenu} dWindow={dWindow} />)
         }
@@ -30,11 +36,11 @@ const ItemMenu = ({ item, pos, player, setPlayer, setIMenu, handleInfoWindow, dW
             setIMenu(null)
         }
         if (type === 'I') {
-            setPlayer(EquipAtribCalc(Equip(item, player)))
+            setPlayer(Equip(item, player))
             setIMenu(null)
         }
         if (type === 'E') {
-            setPlayer(EquipAtribCalc(Unequip(item, player)))
+            setPlayer(Unequip(item, player))
             setIMenu(null)
         }
     }
@@ -47,12 +53,25 @@ const ItemMenu = ({ item, pos, player, setPlayer, setIMenu, handleInfoWindow, dW
                 </> :
                 item.inv === 'PS' ?
                     <>
-                        <span onClick={() => handleAction('take')}>Take</span>
+                        {item.amount === undefined ?
+                            <span onClick={() => handleAction('takeAll')}>Take</span> :
+                            <>
+                                <span onClick={() => handleAction('take')}>Take</span>
+                                <span onClick={() => handleAction('takeAll')}>Take All</span>
+                            </>
+                        }
                     </> :
                     <>
                         {action}
                         {dWindow === 'Shop' ? <span onClick={() => handleAction('sell')}>Sell</span> : null}
-                        {dWindow === 'Stash' ? <span onClick={() => handleAction('store')}>Store</span> : null}
+                        {dWindow === 'Stash' ?
+                            item.amount === undefined ?
+                                <span onClick={() => handleAction('storeAll')}>Store</span> :
+                                <>
+                                    <span onClick={() => handleAction('store')}>Store</span>
+                                    <span onClick={() => handleAction('storeAll')}>Store All</span>
+                                </> :
+                            null}
                         <span onClick={() => handleAction('delete')}>Delete</span>
                     </>
             }

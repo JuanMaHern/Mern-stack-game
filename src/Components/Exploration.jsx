@@ -9,14 +9,11 @@ import ToolWork from "./ToolWork"
 const Exploration = ({ player, setPlayer, setBlurWindow }) => {
     const [engage, setEngage] = useState({ location: 'none', enemies: [], indxPos: 0 })
     if (engage.enemies.length > 1 && engage.indxPos < 10) {
-        console.log(engage.enemies[engage.indxPos])
         if (engage.enemies[engage.indxPos].type === 'Resource') {
-            if (!InvProfSearch(player.character.inventori, engage.enemies[engage.indxPos].proffesion)) {
+            if (!InvProfSearch(player, engage.enemies[engage.indxPos].proffesion)) {
                 let auxEngage = JSON.parse(JSON.stringify(engage))
                 auxEngage.indxPos += 1
                 setEngage(auxEngage)
-            } else {
-                console.log('Tiene herramienta')
             }
         }
     }
@@ -62,7 +59,7 @@ const Exploration = ({ player, setPlayer, setBlurWindow }) => {
                     <p>{engage.location}</p>
                 </span>
                 {engage.enemies.map(entitie => {
-                    const tool = InvProfSearch(player.character.inventori, entitie.proffesion)
+                    const tool = InvProfSearch(player, entitie.proffesion)
                     return <EntitieCard enemy={entitie} handleFight={handleFight} indx={entitie.indx} indxPos={engage.indxPos} tool={tool} />
                 })}
             </div>

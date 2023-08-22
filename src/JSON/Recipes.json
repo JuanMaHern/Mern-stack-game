@@ -1,0 +1,21 @@
+[
+    [
+        {
+            "name": "Sword",
+            "id": 1,
+            "proffesion": "WeaponSmithing",
+            "lvl": 1,
+            "xp": 5,
+            "materials": [
+                {
+                    "id": 7,
+                    "amount": 22
+                },
+                {
+                    "id": 8,
+                    "amount": 22
+                }
+            ]
+        }
+    ]
+]

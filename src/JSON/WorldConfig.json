@@ -2,6 +2,23 @@
     {
         "Exploration": [
             {
+                "Location": "Plains",
+                "Enemies": [
+                ],
+                "Resources": [
+                    3
+                ]
+            },
+            {
+                "Location": "Montain",
+                "Enemies": [
+                    1
+                ],
+                "Resources": [
+                    2
+                ]
+            },
+            {
                 "Location": "Forest",
                 "Enemies": [
                     1
@@ -9,16 +26,8 @@
                 "Resources": [
                     1
                 ]
-            },
-            {
-                "Location": "Plains",
-                "Enemies": [
-                ],
-                "Resources": [
-                    3
-                ]
             }
         ],
-        "Shop": [{"id": 6}]
+        "Shop": [{"id": 6},{"id": 9},{"id": 10}]
     }
 ]
