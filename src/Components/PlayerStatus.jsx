@@ -34,7 +34,7 @@ const PlayerStatus = ({ player, setPlayer }) => {
             <div>
                 <h4>Skills</h4>
                 {skillArray.map((skill) => {
-                    return <p key={skill.key}>{skill.key}: {skill.Level}</p>
+                    return <p key={skill.key}>{skill.key}: {skill.Level} ({skill.Xp} / {100*skill.Level*skill.Level})</p>
                 })}
             </div>
         </div>

@@ -42,3 +42,16 @@ export function PlayerExp (player, exp) {
     }
     return auxPlayer
 }
+export function SkillExp (player, profession, xp) {
+    console.log(profession)
+    console.log(xp)
+    let auxPlayer = JSON.parse(JSON.stringify(player))
+    let skill = auxPlayer.character.skills[profession]
+    const maxExp = 100*skill.Level*skill.Level
+    skill.Xp += xp
+    while (skill.Xp >= 100*skill.Level*skill.Level){
+        skill.Level += 1
+    }
+    auxPlayer.character.skills[profession] = skill
+    return auxPlayer
+}

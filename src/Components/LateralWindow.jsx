@@ -4,7 +4,7 @@ import ItemMenu from "./ItemMenu"
 import InfoWindow from "./InfoWindow"
 import PlayerInfo from "./PlayerInfo"
 
-const LateralWindow = ({ player, setPlayer, setBlurWindow, dWindow }) => {
+const LateralWindow = ({ player, setPlayer, setBlurWindow, dWindow, now }) => {
     const [iMenu, setIMenu] = useState(null)
     const handleInfoWindow = (item) => {
         setIMenu(null)

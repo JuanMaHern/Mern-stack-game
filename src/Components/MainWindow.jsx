@@ -5,7 +5,7 @@ import NavBar from "./NavBar"
 import { EquipAtribCalc } from "../Scripts/PlayerControl"
 import { DbtoInvPlayer } from "../Scripts/InventoriControl"
 
-const MainWindow = ({ user, enemi }) => {
+const MainWindow = ({ user, now }) => {
     const [player, setPlayer] = useState(EquipAtribCalc(DbtoInvPlayer(user.current)))
     const [dWindow, setDWindow] = useState('main')
     const [blurWindow, setBlurWindow] = useState(null)
@@ -14,9 +14,9 @@ const MainWindow = ({ user, enemi }) => {
     }
     return(
         <div className="mainWindow">
-            <NavBar setDWindow={setDWindow} />
-            <DisplayWindow player={player} setPlayer={setPlayer} dWindow={dWindow} setBlurWindow={setBlurWindow} />
-            <LateralWindow player={player} setPlayer={setPlayer} setBlurWindow={setBlurWindow} dWindow={dWindow} />
+            <NavBar setDWindow={setDWindow} now={now} />
+            <DisplayWindow player={player} setPlayer={setPlayer} dWindow={dWindow} setBlurWindow={setBlurWindow} setDWindow={setDWindow} now={now} />
+            <LateralWindow player={player} setPlayer={setPlayer} setBlurWindow={setBlurWindow} dWindow={dWindow} now={now} />
             {blurWindow}
         </div>
     )

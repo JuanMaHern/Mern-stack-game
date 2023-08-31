@@ -2,6 +2,7 @@ import { DeleteItem, Equip, Store, Take, Unequip, Use } from "../Scripts/ItemCon
 import SellWindow from "./SellWindow"
 
 const ItemMenu = ({ item, pos, player, setPlayer, setIMenu, handleInfoWindow, dWindow }) => {
+    console.log(item)
     const action = item.type === 'Consumable' ?
         <span onClick={() => handleAction('consumable')} >Use</span> :
         item.type === 'Material' ? null :

@@ -1,19 +1,43 @@
 [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+        {
+            "name": "Potion",
+            "id": 6,
+            "profession": "Alchemy",
+            "lvl": 1,
+            "xp": 100,
+            "time": 3000,
+            "materials": [
+                {
+                    "id": 14,
+                    "amount": 1
+                }
+            ]
+        }
+    ],
     [
         {
             "name": "Sword",
             "id": 1,
-            "proffesion": "WeaponSmithing",
+            "profession": "WeaponSmithing",
             "lvl": 1,
-            "xp": 5,
+            "xp": 100,
+            "time": 3000,
             "materials": [
                 {
                     "id": 7,
-                    "amount": 22
+                    "amount": 2
                 },
                 {
                     "id": 8,
-                    "amount": 22
+                    "amount": 2
                 }
             ]
         }

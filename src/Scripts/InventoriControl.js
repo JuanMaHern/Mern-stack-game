@@ -1,5 +1,7 @@
 import itemDb from "../JSON/Items.json"
+import Recipes from "../JSON/Recipes.json"
 import { v4 as uuid } from "uuid"
+import { ItemAmount } from "./ItemControl"
 
 /* item rarity multiplier */
 const atribMultip = (item) => {
@@ -105,4 +107,53 @@ export function DbtoInvPlayer(player) {
     auxPlayer.character.inventori = DbToInv(auxPlayer.character.inventori, "I")
     auxPlayer.character.equipment = DbToInv(auxPlayer.character.equipment, "E")
     return auxPlayer
+}
+
+export function RecipeDb(term) {
+    const db = JSON.parse(JSON.stringify(Recipes))
+    switch (term) {
+        case 'Smelter':
+            return db[0]
+            break
+        case 'Sawmill':
+            return db[1]
+            break
+        case 'Skining Rack':
+            return db[2]
+            break
+        case 'Loom':
+            return db[3]
+            break
+        case 'Stone Cutter':
+            return db[4]
+            break
+        case 'Forge':
+            return db[5]
+            break
+        case 'Furnace':
+            return db[6]
+            break
+            case 'Cauldron':
+            return db[7]
+            break
+        case 'Work Station':
+            return db[8]
+            break
+    }
+
+}
+
+export function CraftAmount (array, invCap, mats) {
+    let matsAmount = []
+    let amount = invCap
+    for (let mat of mats){
+        matsAmount.push({id: mat.id, amount: ItemAmount(array, mat.id)})
+    }
+    for (let mat of matsAmount){
+        const auxMat = mats.find(elem => elem.id === mat.id)
+        const auxAmount = Math.floor(mat.amount / auxMat.amount)
+        auxAmount < amount ? amount = auxAmount : null
+    }
+    return amount
+
 }
