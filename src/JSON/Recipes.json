@@ -1,11 +1,168 @@
 [
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
+    [
+        {
+            "name": "Iron Ingot",
+            "id": 16,
+            "profession": "Smelting",
+            "lvl": 1,
+            "xp": 100,
+            "time": 3000,
+            "amount": 1,
+            "materials": [
+                {
+                    "id": 15,
+                    "amount": 1
+                }
+            ]
+        }
+    ],
+    [
+        {
+            "name": "Wood Plank",
+            "id": 17,
+            "profession": "WoodWorking",
+            "lvl": 1,
+            "xp": 100,
+            "time": 3000,
+            "amount": 2,
+            "materials": [
+                {
+                    "id": 7,
+                    "amount": 1
+                }
+            ]
+        },
+        {
+            "name": "Wood Stick",
+            "id": 18,
+            "profession": "WoodWorking",
+            "lvl": 1,
+            "xp": 100,
+            "time": 3000,
+            "amount": 4,
+            "materials": [
+                {
+                    "id": 17,
+                    "amount": 1
+                }
+            ]
+        },
+        {
+            "name": "Sword Handle",
+            "id": 32,
+            "profession": "WoodWorking",
+            "lvl": 1,
+            "xp": 100,
+            "time": 3000,
+            "amount": 1,
+            "materials": [
+                {
+                    "id": 17,
+                    "amount": 1
+                }
+            ]
+        }
+    ],
+    [
+        {
+            "name": "Leather",
+            "id": 26,
+            "profession": "LeatherWorking",
+            "lvl": 1,
+            "xp": 100,
+            "time": 3000,
+            "amount": 1,
+            "materials": [
+                {
+                    "id": 25,
+                    "amount": 1
+                }
+            ]
+        }
+    ],
+    [
+        {
+            "name": "Wood Stick",
+            "id": 19,
+            "profession": "Weaving",
+            "lvl": 1,
+            "xp": 100,
+            "time": 3000,
+            "amount": 1,
+            "materials": [
+                {
+                    "id": 29,
+                    "amount": 1
+                }
+            ]
+        }
+    ],
+    [
+        {
+            "name": "Stone Block",
+            "id": 30,
+            "profession": "StoneCutting",
+            "lvl": 1,
+            "xp": 100,
+            "time": 3000,
+            "amount": 1,
+            "materials": [
+                {
+                    "id": 8,
+                    "amount": 1
+                }
+            ]
+        }
+    ],
+    [
+        {
+            "name": "Sword Blade",
+            "id": 31,
+            "profession": "WeaponSmithing",
+            "lvl": 1,
+            "xp": 100,
+            "time": 3000,
+            "amount": 1,
+            "materials": [
+                {
+                    "id": 16,
+                    "amount": 1
+                }
+            ]
+        },
+        {
+            "name": "Arrowhead",
+            "id": 34,
+            "profession": "WeaponSmithing",
+            "lvl": 1,
+            "xp": 100,
+            "time": 3000,
+            "amount": 5,
+            "materials": [
+                {
+                    "id": 16,
+                    "amount": 1
+                }
+            ]
+        }
+    ],
+    [
+        {
+            "name": "Cooked Meat",
+            "id": 33,
+            "profession": "Cooking",
+            "lvl": 1,
+            "xp": 100,
+            "time": 3000,
+            "amount": 1,
+            "materials": [
+                {
+                    "id": 28,
+                    "amount": 1
+                }
+            ]
+        }
+    ],
     [
         {
             "name": "Potion",
@@ -14,6 +171,7 @@
             "lvl": 1,
             "xp": 100,
             "time": 3000,
+            "amount": 1,
             "materials": [
                 {
                     "id": 14,
@@ -30,14 +188,72 @@
             "lvl": 1,
             "xp": 100,
             "time": 3000,
+            "amount": 1,
             "materials": [
                 {
-                    "id": 7,
-                    "amount": 2
+                    "id": 31,
+                    "amount": 1
                 },
                 {
-                    "id": 8,
-                    "amount": 2
+                    "id": 32,
+                    "amount": 1
+                }
+            ]
+        },
+        {
+            "name": "Bow",
+            "id": 21,
+            "profession": "WoodWorking",
+            "lvl": 1,
+            "xp": 100,
+            "time": 3000,
+            "amount": 1,
+            "materials": [
+                {
+                    "id": 18,
+                    "amount": 1
+                },
+                {
+                    "id": 19,
+                    "amount": 1
+                }
+            ]
+        },
+        {
+            "name": "Arrow",
+            "id": 22,
+            "profession": "WoodWorking",
+            "lvl": 1,
+            "xp": 100,
+            "time": 3000,
+            "amount": 1,
+            "materials": [
+                {
+                    "id": 34,
+                    "amount": 1
+                },
+                {
+                    "id": 18,
+                    "amount": 1
+                },
+                {
+                    "id": 24,
+                    "amount": 1
+                }
+            ]
+        },
+        {
+            "name": "Quiver",
+            "id": 23,
+            "profession": "LeatherWorking",
+            "lvl": 1,
+            "xp": 100,
+            "time": 3000,
+            "amount": 1,
+            "materials": [
+                {
+                    "id": 26,
+                    "amount": 5
                 }
             ]
         }

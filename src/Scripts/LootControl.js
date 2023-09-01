@@ -25,8 +25,9 @@ export function Loot(array) {
             const auxRarity = randomRarity(1)
             const atrib = auxItem.type === 'Weapon' ?
                 { rarity: auxRarity.rar, damage: Math.floor(auxItem.damage * auxRarity.multip) } :
-                auxItem.type === 'Armor' ? { rarity: auxRarity.rar, defense: Math.floor(auxItem.defense * auxRarity.multip) } :
-                    { amount: 1 }
+                auxItem.type === 'Armor' ? { rarity: auxRarity.rar, defense: Math.floor(auxItem.defense * auxRarity.multip) } : 
+                auxItem.type === 'Tool' ? {}:
+                    { amount: Math.ceil(Math.random()*item.amount) }
             auxLoot.push({ ...auxItem, ...atrib, inv: 'I', price: Math.floor(auxItem.price * auxRarity.multip), objectId: uuid() })
         }
     }

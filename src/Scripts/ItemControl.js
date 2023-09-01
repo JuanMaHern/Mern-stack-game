@@ -191,6 +191,9 @@ export function Craft(player, item, recipe, amount) {
     } else {
         let auxAmount = Math.floor(amount / 20)
         let auxRest = amount % 20
+
+        /* Probar si se puede hacer un slot con la cantidad max de items (>20) */
+        /* Multiplicar la cantidad max de items por el amount proporcionado por la receta */
         while (auxAmount > 0) {
             console.log(auxAmount)
             auxPlayer.character.craft.push({ item: { ...item, objectId: uuid(), amount: 20, inv: 'C' }, inv: 'C', time: Time().time + (recipe.time*20),profession: recipe.profession, xp: recipe.xp*20  })
@@ -243,7 +246,7 @@ export function CraftInv(player, item) {
     console.log(item)
     let auxPlayer = JSON.parse(JSON.stringify(player))
     if (auxPlayer.character.inventori.length < auxPlayer.character.invCap) {
-        const index = auxPlayer.character.craft.find(elem => elem.objectId === item.item.objectId)
+        const index = auxPlayer.character.craft.indexOf(auxPlayer.character.craft.find(elem => elem.item.objectId === item.item.objectId))
         auxPlayer.character.inventori = AddtoInv(auxPlayer.character.inventori, { ...item.item, inv: 'I' })
         auxPlayer.character.craft.splice(index, 1)
         auxPlayer = SkillExp(auxPlayer, item.profession, item.xp)

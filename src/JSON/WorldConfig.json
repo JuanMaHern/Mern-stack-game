@@ -4,9 +4,9 @@
             {
                 "Location": "Plains",
                 "Enemies": [
+                    2
                 ],
                 "Resources": [
-                    3
                 ]
             },
             {
