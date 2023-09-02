@@ -2,9 +2,8 @@ import { useState } from "react"
 import ProgressBar from "./ProgressBar"
 import ItemSlot from "./ItemSlot";
 import { v4 as uuid } from 'uuid'
-import { Loot } from "../Scripts/LootControl";
 import { AddtoInv } from "../Scripts/InventoriControl";
-import { PlayerExp } from "../Scripts/PlayerControl";
+import { Atack } from "../Scripts/Battle";
 
 const Battle = ({ enemy, player, setPlayer, setBlurWindow, handleWin }) => {
     const [battle, setBattle] = useState({
@@ -55,7 +54,8 @@ const Battle = ({ enemy, player, setPlayer, setBlurWindow, handleWin }) => {
     const handleAtack = () => {
         if (battle.turn === 'player' && battle.status === 'fight') {
             let auxBattle = JSON.parse(JSON.stringify(battle))
-            let dmg = auxBattle.player.character.dmg
+            auxBattle = Atack(player, battle, savePlayer)
+            /* let dmg = auxBattle.player.character.dmg
             if (auxBattle.enemy.def > 0) {
                 let auxDmg = JSON.parse(JSON.stringify(dmg))
                 auxBattle.enemy.def <= auxDmg ? dmg -= auxBattle.enemy.def : dmg = 0
@@ -80,7 +80,7 @@ const Battle = ({ enemy, player, setPlayer, setBlurWindow, handleWin }) => {
             } else {
                 auxBattle.turn = 'enemy'
                 auxBattle.log.push('Enemy turn')
-            }
+            } */
             setBattle(auxBattle)
         }
     }
@@ -96,11 +96,11 @@ const Battle = ({ enemy, player, setPlayer, setBlurWindow, handleWin }) => {
         <div className="blur">
             <div className="battle">
                 <span className="avatar"><img src={enemy.img} alt={enemy.name} /></span>
-                <span>{battle.enemy.pv}/{enemy.pv} {battle.enemy.def === 0 ? null : `+${battle.enemy.def}`}</span>
-                <ProgressBar Max={enemy.pv} Value={battle.enemy.pv} />
+                <ProgressBar Max={enemy.pv} Value={battle.enemy.pv} Color={'red'} Source={'Pv'}/>
                 <span className="avatar"><img src={player.character.avatar} alt={player.character.name} /></span>
-                <span>{battle.player.character.pv}/{battle.player.character.maxPv} {battle.player.character.def === 0 ? null : `+${battle.player.character.def}`}</span>
-                <ProgressBar Max={battle.player.character.maxPv} Value={battle.player.character.pv} />
+                <ProgressBar Max={player.character.def} Value={battle.player.character.def} Color={'green'} Source={'Def'}/>
+                <ProgressBar Max={battle.player.character.maxPv} Value={battle.player.character.pv} Color={'red'} Source={'Pv'}/>
+                <ProgressBar Max={battle.player.character.maxMp} Value={battle.player.character.mp} Color={'blue'} Source={'Mp'}/>
                 <span style={battle.status === 'fight' ? battle.turn === 'enemy' ? { color: 'grey' } : null : { color: 'grey' }} onClick={() => handleAtack()} >Atack</span>
                 <span onClick={() => handleClose()}>Close</span>
             </div>

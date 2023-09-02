@@ -1,4 +1,4 @@
-import { DeleteItem, Equip, Store, Take, Unequip, Use } from "../Scripts/ItemControl"
+import { DeleteItem, Equip, Store, Take, ToQuiver, Unequip, Unpack, Use } from "../Scripts/ItemControl"
 import SellWindow from "./SellWindow"
 
 const ItemMenu = ({ item, pos, player, setPlayer, setIMenu, handleInfoWindow, dWindow }) => {
@@ -6,7 +6,9 @@ const ItemMenu = ({ item, pos, player, setPlayer, setIMenu, handleInfoWindow, dW
     const action = item.type === 'Consumable' ?
         <span onClick={() => handleAction('consumable')} >Use</span> :
         item.type === 'Material' ? null :
-            <span onClick={() => handleAction(item.inv)} >{item.inv === 'I' ? 'Equip' : 'Unequip'}</span>
+            item.type === 'Ammo' ?
+                <span onClick={() => handleAction(item.type)} >to Quiver</span> :
+                <span onClick={() => handleAction(item.inv)} >{item.inv === 'I' ? 'Equip' : 'Unequip'}</span>
     const handleAction = (type) => {
         if (type === 'delete') {
             setPlayer(DeleteItem(item, player))
@@ -44,6 +46,14 @@ const ItemMenu = ({ item, pos, player, setPlayer, setIMenu, handleInfoWindow, dW
             setPlayer(Unequip(item, player))
             setIMenu(null)
         }
+        if (type === 'Ammo') {
+            setPlayer(ToQuiver(item, player))
+            setIMenu(null)
+        }
+        if (type === 'unpack') {
+            setPlayer(Unpack(item, player))
+            setIMenu(null)
+        }
     }
     return (
         <div className="itemMenu" style={{ top: pos.y, left: pos.x - 70 }}>
@@ -64,6 +74,7 @@ const ItemMenu = ({ item, pos, player, setPlayer, setIMenu, handleInfoWindow, dW
                     </> :
                     <>
                         {action}
+                        {item.type === 'Container' ? <span onClick={() => handleAction('unpack')}> Unpack </span> : null}
                         {dWindow === 'Shop' ? <span onClick={() => handleAction('sell')}>Sell</span> : null}
                         {dWindow === 'Stash' ?
                             item.amount === undefined ?

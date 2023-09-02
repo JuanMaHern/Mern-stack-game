@@ -215,10 +215,11 @@
         "id": 23,
         "name": "Quiver",
         "desc": "It must hurt to get hit with this",
-        "type": "Armor",
+        "type": "Container",
+        "invCap": 1,
+        "inventori": [],
         "slot": "Left-hand",
         "class": "Archer",
-        "defense": 5,
         "price": 5,
         "img": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAFxSURBVHja7JYxTsNAEEX/INe0dBzABaJDcuTeN8gRqGjsI6Q3RUoKag4QaaktW0oXIeQDBBpaDsCnCGOtrbXxGlAk5JEsRZPsvpmd/9cRkjhGnOBIMYP/PzjoJkRk7FqXHZyLXc4JplQrAF82q1auMiWWa0P2wH8MVmhlSmx3ewDA1eU5omSBdLdHXtSj4L4zbkGf3t4BAHePz00BfyouhV6cnTZwjTQOIe75/46qXVCfrn3AtDe3ofe316hM6dW1t7gqUyJKFoiSRSvnLdKuxwZ8zCwOkRc10jgcPFJVe17UoIMxGiwA0y8oAdFjHCpge7CWP9ie0cNNguXaQP0pADWnBXTFZXf9QcqYGVNhuoELqhsTkLyomxOwLxX9jL571H4A8HWzYhaHzOKQdudifedSrQCUgxZa67sMkv1g3cR+hqCuAvR3LnDQZ5nuS0DzKphvDC+T7KRz7IY9a68LfqqqfTqZDJ7/c83gGTw1PgcAMFUa7sa+swwAAAAASUVORK5CYII="
     },

@@ -1,7 +1,9 @@
-const ProgressBar = ({ Max, Value }) => {
-    const percent = Value*100/Max
+const ProgressBar = ({ Max, Value, Color, Source }) => {
+    
+    const msj = Source === 'Lvl' ? `${Source}: ${Math.sqrt(Max / 100)}` : `${Source}: ${Value}`
+    const percent = Value * 120 / Max
     return (
-        <div className="progressContainer"><div style={{width: percent}} className="progressBar"></div></div>
+        <div  className="progressContainer"><div style={{ width: percent, backgroundColor: Color }} className="progressBar"><span className="pb-value">{msj}</span></div></div>
     )
 }
 export default ProgressBar

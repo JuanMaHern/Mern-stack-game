@@ -37,17 +37,17 @@ export function InvProfSearch(player, term) {
 /* Add item to Inventori */
 export function AddtoInv(inv, item) {
     let auxInv = JSON.parse(JSON.stringify(inv))
-    if (item.type === 'Weapon' || item.type === 'Armor' || item.type === 'Tool') {
+    if (item.type === 'Weapon' || item.type === 'Armor' || item.type === 'Tool' || item.type === 'Container') {
         auxInv.push(item)
     } else {
         let auxItem = undefined
         let auxAmount = item.amount
         for (let elem of auxInv) {
-            if (elem.id === item.id && elem.amount < 20 && auxItem === undefined) {
+            if (elem.id === item.id && elem.amount < 100 && auxItem === undefined) {
                 auxItem = elem
-                if (auxItem.amount + auxAmount > 20) {
-                    auxAmount = auxItem.amount + auxAmount - 20
-                    auxInv[auxInv.indexOf(elem)].amount = 20
+                if (auxItem.amount + auxAmount > 100) {
+                    auxAmount = auxItem.amount + auxAmount - 100
+                    auxInv[auxInv.indexOf(elem)].amount = 100
                     auxItem = undefined
                 } else {
                     auxInv[auxInv.indexOf(elem)].amount += auxAmount
@@ -55,23 +55,13 @@ export function AddtoInv(inv, item) {
             }
         }
         if (auxItem === undefined) {
-            for (let i = auxAmount; i >= 1; i -= 20) {
-                auxInv.push({ ...item, amount: i > 20 ? 20 : i, objectId: uuid() })
+            for (let i = auxAmount; i >= 1; i -= 100) {
+                auxInv.push({ ...item, amount: i > 100 ? 100 : i, objectId: uuid() })
             }
         }
     }
     return auxInv
 }
-
-/* Add array to Inv */
-/* export function AddArraytoInv(inv, array) {
-    let auxArray = JSON.parse(JSON.stringify(inv))
-    for (let elem of array) {
-        AddtoInv(auxArray, elem)
-    }
-    console.log(auxArray)
-    return auxArray
-} */
 
 /* Fill inventori slots from array */
 export function FillInventori(inventori, cap, source) {
@@ -143,9 +133,9 @@ export function RecipeDb(term) {
 
 }
 
-export function CraftAmount (array, invCap, mats) {
+export function CraftAmount (array, mats) {
     let matsAmount = []
-    let amount = invCap
+    let amount = 99999
     for (let mat of mats){
         matsAmount.push({id: mat.id, amount: ItemAmount(array, mat.id)})
     }

@@ -11,8 +11,8 @@ const WorkStation = ({ player, setPlayer, setBlurWindow, term }) => {
     const recipesDb = RecipeDb(term)
     const handleIMenu = (item) => {
         let auxArray = JSON.parse(JSON.stringify(item))
-        let invCap = auxArray[0].type !== 'Weapon' && auxArray[0].type !== 'Armor' &&  auxArray[0].type !== 'Tool' ? (5 - player.character.craft.length)*20 : 5 - player.character.craft.length
-        auxArray.push(CraftAmount(player.character.inventori, invCap, auxArray[1].mats))
+        let invCap = player.character.craft.length < 5? true : false
+        auxArray.push(invCap? CraftAmount(player.character.inventori, auxArray[1].mats) : 0)
         auxArray.push(1)
         setRecipeInfo(auxArray)
     }

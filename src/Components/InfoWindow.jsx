@@ -12,11 +12,13 @@ const InfoWindow = ({ item, setPlayer, setBlurWindow }) => {
                     </div>
                 </div>
                 <div className="infoBody">
+                {item.inventori !== undefined ? <ItemSlot item={item.inventori[0] !== undefined? item.inventori[0]: '?'} /> : null}
                     <span>Type: {item.type}</span>
                     {item.slot !== undefined ? <span>Slot: {item.slot}</span> : null}
                     {item.class !== undefined ? <span>Class: {item.class}</span> : null}
                     {item.damage !== undefined ? <span>Damage: {item.damage}</span> : null}
                     {item.defense !== undefined ? <span>Defense: {item.defense}</span> : null}
+                    
                     {item.action !== undefined ? <span>{item.action.type}: {item.action.amount} </span> : null}
                     <span>Price: {item.price}G</span>
                 </div>

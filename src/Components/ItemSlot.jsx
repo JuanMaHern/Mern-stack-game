@@ -12,7 +12,10 @@ const ItemSlot = ({ item, handleIMenu, now }) => {
     }
     if (auxItem !== '?') {
         itm = <><img className="itemImg" style={pointer} src={auxItem.img} alt={auxItem.name} onClick={() => handleItem()} />
-            <span style={{ position: 'absolute', bottom: 0, right: 0 }}>{auxItem.amount !== undefined ? auxItem.amount : null}</span>
+            <span style={{ position: 'absolute', bottom: 0, right: 0 }}>
+                {auxItem.amount !== undefined ? auxItem.amount : null}
+                {auxItem.inventori !== undefined ? auxItem.inventori[0] !== undefined ? auxItem.inventori[0].amount: null :null}
+                </span>
         </>
     }
     return (

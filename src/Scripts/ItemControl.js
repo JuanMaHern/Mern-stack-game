@@ -47,6 +47,57 @@ export function Unequip(item, player) {
     return auxPlayer
 }
 
+export function ToQuiver(item, player) {
+    let auxPlayer = JSON.parse(JSON.stringify(player))
+    let auxItem = auxPlayer.character.inventori.find(elem => elem.objectId === item.objectId)
+    let hasQuiver = auxPlayer.character.equipment.find(elem => elem.id === 23)
+    console.log(hasQuiver)
+    if (hasQuiver !== undefined) {
+        const qIndex = auxPlayer.character.equipment.indexOf(hasQuiver)
+        const iIndex = auxPlayer.character.inventori.indexOf(auxItem)
+        if (hasQuiver.inventori[0] === undefined) {
+            hasQuiver.inventori[0] = auxItem
+            auxPlayer.character.inventori.splice(iIndex, 1)
+        } else {
+            if (hasQuiver.inventori[0].id !== auxItem.id) {
+                auxPlayer.character.inventori.push(hasQuiver.inventori[0])
+                hasQuiver.inventori[0] = auxItem
+                auxPlayer.character.inventori.splice(iIndex, 1)
+            } else if (hasQuiver.inventori[0].amount < 100) {
+                const rest = hasQuiver.inventori[0].amount + auxItem.amount - 100
+                if (rest <= 0) {
+                    hasQuiver.inventori[0].amunt += auxItem.amount
+                    auxPlayer.character.inventori.splice(iIndex, 1)
+                } else {
+                    auxPlayer.character.inventori[iIndex].amount -= (100 - hasQuiver.inventori[0].amount)
+                    hasQuiver.inventori[0].amount = 100
+                }
+            }
+        }
+        auxPlayer.character.equipment[qIndex] = hasQuiver
+    }
+
+    return EquipAtribCalc(auxPlayer)
+}
+
+export function Unpack(item, player) {
+    console.log(item)
+    let auxPlayer = JSON.parse(JSON.stringify(player))
+    if (item.inventori[0] !== undefined) {
+        let auxItem = JSON.parse(JSON.stringify(item))
+        auxPlayer.character.inventori.push(auxItem.inventori[0])
+        auxItem.inventori = []
+        if (auxItem.inv === 'I') {
+            let iIndex = auxPlayer.character.inventori.indexOf(auxPlayer.character.inventori.find(elem => elem.objectId === auxItem.objectId))
+            auxPlayer.character.inventori[iIndex] = auxItem
+        } else {
+            let iIndex = auxPlayer.character.equipment.indexOf(auxPlayer.character.equipment.find(elem => elem.objectId === auxItem.objectId))
+            auxPlayer.character.equipment[iIndex] = auxItem
+        }
+    }
+    return auxPlayer
+}
+
 export function Use(item, player) {
     let auxPlayer = JSON.parse(JSON.stringify(player))
     if (item.type === 'Consumable') {
@@ -100,8 +151,9 @@ export function Store(item, player, amount) {
 
 }
 export function Take(item, player, amount) {
+    console.log(item)
     let auxPlayer = JSON.parse(JSON.stringify(player))
-    let auxItem = item.type === 'Weapon' || item.type === 'Armor' || item.type === 'Tool' ? item : { ...item, amount: Number(amount) }
+    let auxItem = item.type === 'Weapon' || item.type === 'Armor' || item.type === 'Tool' || item.type === 'Container' ? item : { ...item, amount: Number(amount) }
     auxPlayer.character.inventori = AddtoInv(auxPlayer.character.inventori, { ...auxItem, inv: 'I' })
     if (item.amount === undefined || item.amount === Number(amount)) {
         auxPlayer = DeleteItem(item, auxPlayer)
@@ -189,56 +241,8 @@ export function Craft(player, item, recipe, amount) {
             auxAmount -= 1
         }
     } else {
-        let auxAmount = Math.floor(amount / 20)
-        let auxRest = amount % 20
-
-        /* Probar si se puede hacer un slot con la cantidad max de items (>20) */
-        /* Multiplicar la cantidad max de items por el amount proporcionado por la receta */
-        while (auxAmount > 0) {
-            console.log(auxAmount)
-            auxPlayer.character.craft.push({ item: { ...item, objectId: uuid(), amount: 20, inv: 'C' }, inv: 'C', time: Time().time + (recipe.time*20),profession: recipe.profession, xp: recipe.xp*20  })
-            auxAmount -= 1
-        }
-        if (auxRest > 0) {
-            console.log(auxRest)
-            auxPlayer.character.craft.push({ item: { ...item, objectId: uuid(), amount: auxRest, inv: 'C' }, inv: 'C', time: Time().time + (recipe.time*auxRest),profession: recipe.profession, xp: recipe.xp*auxRest  })
-        }
+        auxPlayer.character.craft.push({ item: { ...item, objectId: uuid(), amount: amount * recipe.amount, inv: 'C' }, inv: 'C', time: Time().time + (recipe.time * amount), profession: recipe.profession, xp: recipe.xp * amount })
     }
-    /* Tengo que poner lo que esta a continuacion en una funcion aparte y llamarla arriba 
-        for(let mat of mats){
-        if(mat.amount < 20){
-            let auxIndex = auxPlayer.character.inventori.indexOf(auxPlayer.character.inventori.find(elem => elem.id === mat.id))
-            auxPlayer.character.inventori[auxIndex].amount -= mat.amount
-        } else {
-            let auxArray = FindArrayItems(player.character.inventori, mat.id)
-            let auxAmount = 0
-            for (let i = 0 ; i< auxArray.length; i++){
-                let auxIndex = auxPlayer.character.inventori.indexOf(auxPlayer.character.inventori.find(elem => elem.objectId === auxArray[i].objectId))
-                if(auxArray[i].amount <= (mat.amount - auxAmount)){
-                    auxPlayer.character.inventori.splice(auxIndex,1)
-                    auxAmount += auxArray[i].amount    
-                } else {
-                    auxPlayer.character.inventori[auxIndex].amount -= (mat.amount - auxAmount)
-                    auxAmount = mat.amount
-                }
-            }
-        }
-    } */
-    /* Necesito calcular para la xp de la profesion */
-    /* let skillArray = []
-    for (const [key, value] of Object.entries(auxPlayer.character.skills)) {
-        skillArray.push({ key, ...value })
-    }
-    console.log(skillArray)
-    console.log(terms.proffesion)
-    console.log(auxPlayer.character.skills[terms.proffesion]) */
-    /* let rar = randomRarity(1)
-    const atrib = item.type === 'Weapon' ?
-                { rarity: rar.rar, damage: Math.floor(item.damage * rar.multip) } :
-                item.type === 'Armor' ? { rarity: rar.rar, defense: Math.floor(item.defense * rar.multip) } : 
-                null
-    auxPlayer.character.inventori = AddtoInv(auxPlayer.character.inventori,{...item,...atrib, inv: 'I', objectId: uuid()}) */
-    console.log(auxPlayer)
     return auxPlayer
 }
 

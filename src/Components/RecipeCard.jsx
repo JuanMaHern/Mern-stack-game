@@ -9,7 +9,7 @@ const RecipeCard = ({ player, setPlayer, recipe, handleIMenu }) => {
         recipeMats.push({name: auxMat.name, id: mat.id, img: auxMat.img, amount: mat.amount})
     } 
     return (
-        <div className="recipeCard" onClick={() => handleIMenu([recipeItem, {profession : recipe.profession, lvl: recipe.lvl, xp: recipe.xp, mats: recipeMats, time: recipe.time}])}>
+        <div className="recipeCard" onClick={() => handleIMenu([recipeItem, {profession : recipe.profession, lvl: recipe.lvl, xp: recipe.xp, mats: recipeMats, time: recipe.time, amount: recipe.amount}])}>
             <ItemSlot item={recipeItem} />
             <span className="matts">
                 {recipeMats.map(mat => {
