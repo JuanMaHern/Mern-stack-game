@@ -1,4 +1,5 @@
 import Clock from "./Clock"
+import WorldConfig from "../JSON/WorldConfig.json"
 
 const NavBar = ({ setDWindow, now }) => {
     return (
@@ -11,7 +12,6 @@ const NavBar = ({ setDWindow, now }) => {
                 <span onClick={() => setDWindow('Shop')} >Shop</span>
                 <span onClick={() => setDWindow('Stash')} >Stash</span>
                 <span onClick={() => setDWindow('Home')} >Home</span>
-                <span onClick={() => setDWindow('WorkStation')} >Work Station</span>
             </div>
         </div>
     )

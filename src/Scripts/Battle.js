@@ -1,5 +1,6 @@
 import { PlayerExp } from "../Scripts/PlayerControl";
 import { Loot } from "../Scripts/LootControl";
+import { QuestFetch } from "./QuestSystem";
 
 export function Atack(player, battle, savePlayer) {
     let auxBattle = JSON.parse(JSON.stringify(battle))
@@ -38,6 +39,7 @@ export function Atack(player, battle, savePlayer) {
         auxBattle.log.push(`+${auxBattle.enemy.gold}G`)
         auxBattle.log.push(`+${auxBattle.enemy.exp} xp`)
         auxBattle.player = PlayerExp(auxBattle.player, auxBattle.enemy.exp)
+        auxBattle.player = QuestFetch(auxBattle.player, {type: 'Kill', id: auxBattle.enemy.id, amount: 1})
         if (auxBattle.player.character.lvl > player.character.lvl) {
             auxBattle.log.push('Lvl up')
         }

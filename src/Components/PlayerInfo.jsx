@@ -12,9 +12,9 @@ const PlayerInfo = ({player}) => {
             <ProgressBar Max={100*player.character.lvl*player.character.lvl} Value={player.character.exp} Color={'orange'} Source={'Lvl'}/>
             {/* <span>Level: {player.character.lvl}</span>
             <span>Exp: {player.character.exp}/{100*player.character.lvl*player.character.lvl}</span> */}
-            <span>Damage: {player.character.dmg}</span>
+            {/* <span>Damage: {player.character.dmg}</span>
             <span>Defense: {player.character.def}</span>
-            <span>Gold: {player.character.gold}</span>
+            <span>Gold: {player.character.gold}</span> */}
         </div>
     )
 }

@@ -6,8 +6,7 @@
                 "Enemies": [
                     2
                 ],
-                "Resources": [
-                ]
+                "Resources": []
             },
             {
                 "Location": "Montain",
@@ -28,6 +27,41 @@
                 ]
             }
         ],
-        "Shop": [{"id": 6},{"id": 9},{"id": 10}]
+        "Shop": [
+            {
+                "id": 6
+            },
+            {
+                "id": 9
+            },
+            {
+                "id": 10
+            }
+        ],
+        "Quests": [
+            {
+                "id": 1,
+                "Name": "Slime Slayer",
+                "desc": "You need to kill 10 slimes",
+                "Type": "Kill",
+                "Req": {
+                    "id": 1,
+                    "amount": 10
+                },
+                "XpR": 30,
+                "GoldR": 30,
+                "ItemR": [
+                    {
+                        "id": 1,
+                        "rarity": "Epic"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "main": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAACTSURBVHja7NbRCsAgCAVQlf7/l+9etpexZrlrMuhC0FMHKTQFIBUxKcovYZxrKYzOPhW+ID1XCLcPqNz2yIKf0DBuBDSEGwmdxo2ITuFGRodxS0CH8JbRHDpnqgerLIhXMTNuxRlVY8/jMriR7kxXVFwyj+VlHu/HFYKZ3Wt4SGjw64rRdslsmbofl5cDAAD//wMAu7IkQ1LFr7EAAAAASUVORK5CYII=",
+        "player": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAACZSURBVHja5NfRDoAgCAVQL/P/f/n22pylIEgu3yrrTECaIFkyhpSkkQZX43ttfhANs4Pxdh+RK8bDNaNyTKc5puKC8dm524keYdbCcJpjrmquVLMV7u3dLQ3EDB3dq+kRhbpYWKXJOSJC/fYjUFe4OKAmXJxQNS6OqAoXZ3QalwB0CpcgdIhLVEscfetzLZMZMHas+H9HmGsAGaUjTmW2gDMAAAAASUVORK5CYII=",
+        "exploration": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAADCSURBVHja3FdBDsAgCLOE/3+5u+xgzIgIoslMvJhsLRSkgmS7saRdWteA1Tjv849TwOwA+W58EGoZchiKix8/4gSEESLq+AhD1M1BZCqVFsgHD4kosLf4TMk0AXi0j1Hdx+UEdt5cXJFCCqqZVcC4qXH6bpcDoNwdsSdKVqd6mZSc0nSnEbD0hIeUTIxAZN6m+hjBNCJTXJYR8FofRDWmMUfpdBwh6zMaPC4Oe7f1gfGS2GVvzUxo8cDHalX/9wnzDAAahjdTzCISsQAAAABJRU5ErkJggg=="
     }
 ]

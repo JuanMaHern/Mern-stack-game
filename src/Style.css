@@ -21,32 +21,32 @@
     height: 100vh;
     display: flex;
     background-color: var(--background);
+    padding: 5px;
 }
 
 /* ----------------------------------------------navBar---------------------------------------------------- */
 
 .navBar {
-    width: 150px;
-    height: 100%;
+    width: 120px;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 2px solid var(--br);
     background-color: var(--offbf);
+    padding: 5px;
 }
 .navBar-buttons {
     width: auto;
     height: fit-content;
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     margin: auto;
-    align-items: center;
 }
 
 .navBar span {
-    width: 80%;
+    width: 100%;
     text-align: center;
-    margin-bottom: 5px;
     cursor: pointer;
     border-bottom: 1px solid white;
 }
@@ -63,6 +63,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-left: 10px;
 }
 
 /* ------------------------------------------displayWindow------------------------------------------------- */
@@ -430,7 +431,6 @@
     align-items: center;
     overflow-y: scroll;
     flex-direction: column;
-    border: 1px solid blue;
     padding: 5px;
 }
 .exp-Title {
@@ -596,15 +596,20 @@
     width: 100%;
     height: 100%;
     display: flex;
+    background-image: url("./Img/HomeBg.png") ;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 5px;
 }
 
 .home-navBar {
-    width: 200px;
-    height: 300px;
+    width: 185px;
+    height: 220px;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px;
 }
 
 /* ------------------------------------------------nn------------------------------------------------------ */

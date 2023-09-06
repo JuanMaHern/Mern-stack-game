@@ -2,12 +2,8 @@ import { useState } from "react"
 import DisplayWindow from "./DisplayWindow"
 import LateralWindow from "./LateralWindow"
 import NavBar from "./NavBar"
-import { EquipAtribCalc } from "../Scripts/PlayerControl"
-import { DbtoInvPlayer } from "../Scripts/InventoriControl"
 
-const MainWindow = ({ user, now }) => {
-    const [player, setPlayer] = useState(EquipAtribCalc(DbtoInvPlayer(user.current)))
-    const [dWindow, setDWindow] = useState('main')
+const MainWindow = ({ now, player, setPlayer, dWindow, setDWindow }) => {
     const [blurWindow, setBlurWindow] = useState(null)
     if (player.character.inventori.length > player.character.invCap){
         console.log("Te pasaste tio")
