@@ -25,7 +25,7 @@ export function QuestFetch(player, term) {
             auxQuest = quest
         }
     }
-    let playerQuest = auxPlayer.character.quests.find(elem => elem.id === auxQuest.id)
+    let playerQuest = auxQuest !== undefined? auxPlayer.character.quests.find(elem => elem.id === auxQuest.id): undefined
     if(playerQuest !== undefined && playerQuest.status !== 'Completed'){
         const qIndex = auxPlayer.character.quests.indexOf(playerQuest)
         auxPlayer.character.quests[qIndex].reqAmount += term.amount

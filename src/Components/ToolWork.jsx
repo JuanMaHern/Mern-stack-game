@@ -17,8 +17,8 @@ const ToolWork = ({ player, setPlayer, resource, handleWin, setBlurWindow }) => 
         <div className="blur">
             <div className="toolWork">
                 <div className="avatar" ><img src={resource.img} alt={resource.name} /></div>
-                <span className="exp-Back" style={{margin: "10px 0 5px 0"}} onClick={() => handleCollect()}>Collect</span>
-                <span className="exp-Back" onClick={() => setBlurWindow(null)}>Close</span>
+                <span style={{margin: "10px 0 5px 0"}} onClick={() => handleCollect()}>Collect</span>
+                <span onClick={() => setBlurWindow(null)}>Close</span>
             </div>
         </div>
     )

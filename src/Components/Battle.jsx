@@ -86,7 +86,7 @@ const Battle = ({ enemy, player, setPlayer, setBlurWindow, handleWin }) => {
     }
     const handleClose = () => {
         savePlayer(battle.player)
-        if (battle.status === 'win'){
+        if (battle.status === 'win') {
             handleWin()
         }
         setBlurWindow(null)
@@ -96,16 +96,18 @@ const Battle = ({ enemy, player, setPlayer, setBlurWindow, handleWin }) => {
         <div className="blur">
             <div className="battle">
                 <span className="avatar"><img src={enemy.img} alt={enemy.name} /></span>
-                <ProgressBar Max={enemy.pv} Value={battle.enemy.pv} Color={'red'} Source={'Pv'}/>
+                <ProgressBar Max={enemy.pv} Value={battle.enemy.pv} Color={'red'} Source={'Pv'} />
                 <span className="avatar"><img src={player.character.avatar} alt={player.character.name} /></span>
-                <ProgressBar Max={player.character.def} Value={battle.player.character.def} Color={'green'} Source={'Def'}/>
-                <ProgressBar Max={battle.player.character.maxPv} Value={battle.player.character.pv} Color={'red'} Source={'Pv'}/>
-                <ProgressBar Max={battle.player.character.maxMp} Value={battle.player.character.mp} Color={'blue'} Source={'Mp'}/>
-                <span style={battle.status === 'fight' ? battle.turn === 'enemy' ? { color: 'grey' } : null : { color: 'grey' }} onClick={() => handleAtack()} >Atack</span>
-                <span onClick={() => handleClose()}>Close</span>
+                {player.character.def > 0 ? <ProgressBar Max={player.character.def} Value={battle.player.character.def} Color={'green'} Source={'Def'} /> : null}
+                <ProgressBar Max={battle.player.character.maxPv} Value={battle.player.character.pv} Color={'red'} Source={'Pv'} />
+                <ProgressBar Max={battle.player.character.maxMp} Value={battle.player.character.mp} Color={'blue'} Source={'Mp'} />
+                <span className="battle-buttons">
+                    <span onClick={() => handleClose()}>Close</span>
+                    <span style={battle.status === 'fight' ? battle.turn === 'enemy' ? { color: 'grey' } : null : { color: 'grey' }} onClick={() => handleAtack()} >Atack</span>
+                </span>
             </div>
             <span className="battleLateral">
-                <div className="battleLog">{battle.log.map((entry, index)=> {
+                <div className="battleLog">{battle.log.map((entry, index) => {
                     return <span key={`entry${index}}`} >{entry}</span>
                 })}</div>
                 <span>Loot</span>

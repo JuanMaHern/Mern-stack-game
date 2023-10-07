@@ -3,7 +3,18 @@
     --offbf: #252526;
     --text: #C5C3C6;
     --background: #3b3b3b;
-    --br: #f64328;
+    --br: #f67428;
+
+    --color-danger: #FF0060;
+    --color-success: #1B9C85;
+    --color-warning: #F7D060;
+
+    --color-background:  #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
 * {
@@ -20,50 +31,60 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    background-color: var(--background);
-    padding: 5px;
+    background-color: var(--color-background);
+    padding: 20px;
 }
 
 /* ----------------------------------------------navBar---------------------------------------------------- */
 
 .navBar {
-    width: 120px;
+    min-width: 200px;
     min-height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid var(--br);
-    background-color: var(--offbf);
-    padding: 5px;
+    padding: 20px 0 20px 0;
+    gap: 20px;
 }
 .navBar-buttons {
-    width: auto;
-    height: fit-content;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction:column;
-    margin: auto;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    padding-top: 20px ;
+    gap: 5px;
 }
 
-.navBar span {
-    width: 100%;
-    text-align: center;
+.navBar-button {
+    width: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    border-bottom: 1px solid white;
+    margin-left: 40px;
 }
 
-.navBar span:hover {
+.navBar-button:hover {
     color: var(--br);
+    margin-left: 0;
+    padding-left: 30px;
+    background-color: var(--color-background);
 }
 
 /* -----------------------------------------------Clock---------------------------------------------------- */
 .clock {
-    width: auto;
-    height: 60px;
+    width: 200px;
+    height: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-left: 10px;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
 }
 
 /* ------------------------------------------displayWindow------------------------------------------------- */
@@ -74,19 +95,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px 0 20px 0;
 }
 
 /* ------------------------------------------lateralWindow------------------------------------------------- */
 
 .lateralWindow {
-    width: 186px;
+    min-width: 186px;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid var(--br);
-    background-color: var(--offbf);
-    padding: 5px;
+    padding: 20px 0 20px 0;
+    gap: 20px;
 }
 .lateralInventori {
     width: 100%;
@@ -94,17 +115,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px 0 20px 0;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
 }
 
 /* --------------------------------------------playerInfo-------------------------------------------------- */
 
 .playerInfo{
     width: 100%;
-    height: 250px;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 10px;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    padding: 10px 0 10px 0;
 }
 
 /* -------------------------------------------playerStatus------------------------------------------------- */
@@ -113,23 +141,26 @@
     width: 100%;
     height: 100%;
     display: flex;
-    padding: 5px;
-    gap: 5px;
+    justify-content: center;
+    padding: 0 20px;
+    gap: 20px;
 }
 
 .playerStatus div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    border: 1px solid var(--br);
-    border-radius: 5px;
+    width: 400px;
+    height: fit-content;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .playerStatus h4 {
     text-align: center;
-    width: 90%;
+    width: 100%;
     text-align: center;
     border-bottom: 1px solid white;
     margin-bottom: 5px;
@@ -141,17 +172,29 @@
 /* ---------------------------------------------inventori-------------------------------------------------- */
 
 .inventori {
-    width: 170px;
-    height: fit-content;
-    min-height: 40px;
-    max-height: 310px;
+    width: 186px;
+    height:fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 5px;
+}
+
+.inventori-container {
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
-    overflow-y: scroll;
-    border: 1px solid var(--br);
-    border-radius: 5px;
+    overflow: hidden;
     gap: 1px;
-    padding: 2px;
+}
+
+.inventori-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
 
 .itemSlot {
@@ -190,20 +233,27 @@
 /* ---------------------------------------------itemMenu--------------------------------------------------- */
 
 .itemMenu {
-    width: 70px;
+    width: 80px;
     height: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     position: absolute;
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--color-light);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    padding: 10px 0;
+    gap: 2px;
 }
 
 .itemMenu span {
+    width: 100%;
+    height: 25px;
+    display: flex;
+    align-items: center;
     cursor: pointer;
+    padding-left: 10px;
 }
 
 .itemMenu span:hover {
@@ -213,15 +263,15 @@
 /* ---------------------------------------------infoWindow-------------------------------------------------- */
 
 .infoWindow {
-    width: 180px;
+    width: 190px;
     height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid var(--br);
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px;
+    background-color: var(--background);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    padding: 10px;
     z-index: 3;
     gap: 5px;
 }
@@ -231,7 +281,7 @@
     height: 60px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--br);
+    border-bottom: 1px solid var(--color-success);
 }
 
 .headerText {
@@ -256,9 +306,18 @@
     flex-direction: column;
     padding: 2px;
 }
-
-.infoWindow #closeBtn:hover {
-    color: var(--br);
+.infoWindow #closeBtn {
+    width: 60px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-weight: bold;
+    background-color: var(--color-success);
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    border-radius: 10px;
 }
 
 /* --------------------------------------------sellWindow-------------------------------------------------- */
@@ -307,14 +366,14 @@
 }
 
 .entitieCard {
-    width: 80%;
+    width: 500px;
     height: 125px;
     display: flex;
     align-items: center;
-    background-color: var(--offbf);
-    border: 2px solid var(--br);
-    border-radius: 5px;
-    padding: 2px;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .entitieCardB {
@@ -324,6 +383,11 @@
     align-items: center;
     justify-content: center;
     color: black;
+    font-weight: bold;
+    background-color: var(--color-success);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    cursor: pointer;
     margin-left: auto;
 }
 .block {
@@ -356,10 +420,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--br);
-    border-radius: 5px;
-    background-color: var(--offbf);
-    margin-right: 2px;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    margin-right: 10px;
 }
 .battleLateral {
     display: flex;
@@ -367,29 +431,50 @@
     align-items: center;
 }
 .battleLog {
-    width: 137px;
-    height: 210px;
+    width: 143px;
+    height: 196px;
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--br);
-    border-radius: 5px;
     overflow-y: scroll;
     font-size: 14px;
-    background-color: var(--offbf);
-    margin-bottom: 2px;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
     padding: 2px;
+    margin-bottom: 10px;
 }
 .battleLoot {
-    width: 137px;
-    height: 70px;
+    width: 143px;
+    height: 76px;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    border: 1px solid var(--br);
-    border-radius: 5px;
-    background-color: var(--offbf);
-    padding: 2px;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    padding: 5px;
     gap: 1px;
+}
+.battle-buttons {
+    width: 100% ;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.battle-buttons span {
+    width: 60px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-weight: bold;
+    background-color: var(--color-success);
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    border-radius: 10px;
 }
 
 /* ---------------------------------------------ToolWork--------------------------------------------------- */
@@ -405,6 +490,19 @@
     border-radius: 5px;
     background-color: var(--offbf);
 }
+.toolWork span {
+    width: 60px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-weight: bold;
+    background-color: var(--color-success);
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    border-radius: 10px;
+}
 
 
 /* -------------------------------------------exploration-------------------------------------------------- */
@@ -419,10 +517,27 @@
 }
 .location {
     width: 100px;
-    height: 100px;
+    height: fit-content;
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    padding: 10px 0 10px 0;
+    gap: 5px;
+}
+.location span {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+.location span:hover {
+    color: var(--br);
+    margin-left: 0;
+    padding-left: 15px;
+    background-color: var(--color-background);
 }
 .exp-Engaged {
     width: 100%;
@@ -431,32 +546,52 @@
     align-items: center;
     overflow-y: scroll;
     flex-direction: column;
-    padding: 5px;
+    gap: 10px;
 }
 .exp-Title {
-    width: 100%;
-    height: 50px;
+    width: 500px;
+    height: 40px;
     display: flex;
     align-items: center;
-    padding: 0 5px 0 5px;
+    gap: 10px;
 }
 .exp-Title p {
     width: 100%;
+    height: 40px;
     display: flex;
     justify-content: center;
     font-size: 2rem;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
 }
 .exp-Back {
     width: 70px;
-    height: 30px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
     border-radius: 10px;
-    border: 2px solid red;
-    background-color: #252526;
     cursor: pointer;
     padding: 5px;
+}
+
+/* -----------------------------------------------shop----------------------------------------------------- */
+
+.shop {
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+}
+
+/* ----------------------------------------------stash----------------------------------------------------- */
+
+.stash {
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
 }
 
 /* ----------------------------------------------avatar---------------------------------------------------- */
@@ -477,6 +612,7 @@
     width: 120px;
     height: 14px;
     background-color: gray;
+    overflow: hidden;
     border-radius: 5px;
     margin-bottom: 4px;
 }
@@ -485,7 +621,6 @@
     height: 100%;
     display: flex;
     align-items: center;
-    border-radius: 5px;
 }
 .pb-value {
     position: absolute;
@@ -496,6 +631,7 @@
     color: white;
     font-size: 14px;
     font-weight: 200;
+    border-radius: 5px;
 }
 
 /* ----------------------------------------------Recipe---------------------------------------------------- */
@@ -591,6 +727,40 @@
     gap: 2px;
 }
 
+/* -----------------------------------------------Town----------------------------------------------------- */
+
+.town {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    overflow-y: scroll;
+}
+.townSection {
+    width: fit-content;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.townButton {
+    width: 250px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+}
+.townButton:hover {
+    background-color: var(--color-success);
+    color: black;
+}
+
 /* -----------------------------------------------Home----------------------------------------------------- */
 .home {
     width: 100%;
@@ -629,5 +799,6 @@
 ::-webkit-scrollbar {
     display: none;
 }
+
 
 

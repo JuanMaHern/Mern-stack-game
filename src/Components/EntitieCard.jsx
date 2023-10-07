@@ -21,8 +21,8 @@ const EntitieCard = ({ enemy, handleFight, indx, indxPos, tool }) => {
                     <LootShow array={enemy.loot} />
                 </span>
             {indxPos === indx ?
-                <button className="entitieCardB" onClick={() => handleFight(enemy)}>{enemy.type === 'Enemy' ? 'Fight' : 'Collect'}</button>
-                : <button className="entitieCardB block" >{enemy.type === 'Enemy' ? 'Fight' : tool !== undefined ? 'Collect' : 'No tool'}</button>}
+                <span className="entitieCardB" onClick={() => handleFight(enemy)}>{enemy.type === 'Enemy' ? 'Fight' : 'Collect'}</span>
+                : <span className="entitieCardB block" >{enemy.type === 'Enemy' ? 'Fight' : tool !== undefined ? 'Collect' : 'No tool'}</span>}
         </div>
     )
 }

@@ -1,13 +1,12 @@
 import Arena from "./Arena"
 import Exploration from "./Exploration"
-import WorkStation from "./WorkStation"
 import PlayerStatus from "./PlayerStatus"
 import Shop from "./Shop"
 import Stash from "./Stash"
 import Home from "./Home"
+import Town from "./Town"
 
 const DisplayWindow = ({ player, setPlayer, dWindow, setBlurWindow, setDWindow, now }) => {
-
     let display = null
     switch (dWindow) {
         case 'Player':
@@ -28,8 +27,8 @@ const DisplayWindow = ({ player, setPlayer, dWindow, setBlurWindow, setDWindow, 
         case 'Home':
             display = <Home player={player} setPlayer={setPlayer} setBlurWindow={setBlurWindow} now={now} />
             break
-        case 'WorkStation':
-            display = <WorkStation player={player} setPlayer={setPlayer} setBlurWindow={setBlurWindow} dWindow={dWindow} />
+        case 'Town':
+            display = <Town />
             break
         default:
             break
