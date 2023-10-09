@@ -5,6 +5,8 @@ import { ExplorationGen } from "../Scripts/Exploration"
 import { AddtoInv, InvProfSearch } from "../Scripts/InventoriControl"
 import { ResourceLoot } from "../Scripts/LootControl"
 import ToolWork from "./ToolWork"
+import { GiClockwiseRotation } from "react-icons/gi"
+import { HiArrowNarrowLeft, HiArrowNarrowRight } from "react-icons/hi"
 
 const Exploration = ({ player, setPlayer, setBlurWindow }) => {
     const [engage, setEngage] = useState({ location: 'none', enemies: [], indxPos: 0 })
@@ -55,13 +57,16 @@ const Exploration = ({ player, setPlayer, setBlurWindow }) => {
             </div>
             <div style={engage.location === 'none' ? { display: 'none' } : null} className="exp-Engaged" >
                 <span className="exp-Title">
-                    <span className="exp-Back" onClick={() => setEngage({ location: 'none', enemies: [] })}>back</span>
+                    <span className="exp-Back" onClick={() => setEngage({ location: 'none', enemies: [] })}><HiArrowNarrowLeft /></span>
                     <p>{engage.location}</p>
+                    <span className="exp-Back" onClick={() => handleLocation(engage.location)}><GiClockwiseRotation /></span>
                 </span>
-                {engage.enemies.map(entitie => {
-                    const tool = InvProfSearch(player, entitie.proffesion)
-                    return <EntitieCard enemy={entitie} handleFight={handleFight} indx={entitie.indx} indxPos={engage.indxPos} tool={tool} />
-                })}
+                <span className="exp-Body">
+                    {engage.enemies.map(entitie => {
+                        const tool = InvProfSearch(player, entitie.proffesion)
+                        return <EntitieCard enemy={entitie} handleFight={handleFight} indx={entitie.indx} indxPos={engage.indxPos} tool={tool} />
+                    })}
+                </span>
             </div>
         </div>
     )

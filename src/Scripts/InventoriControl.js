@@ -147,3 +147,13 @@ export function CraftAmount (array, mats) {
     return amount
 
 }
+
+export function InvTypeFilter (array, type) {
+    let auxArray = []
+    for (let item of array){
+        if(item.type === type){
+            auxArray.push(item)
+        }
+    }
+    return auxArray
+}

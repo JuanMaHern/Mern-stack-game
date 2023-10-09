@@ -1,4 +1,5 @@
 import LootShow from "./LootShow"
+import { GiBroadsword } from "react-icons/gi"
 
 const EntitieCard = ({ enemy, handleFight, indx, indxPos, tool }) => {
     return (
@@ -21,7 +22,7 @@ const EntitieCard = ({ enemy, handleFight, indx, indxPos, tool }) => {
                     <LootShow array={enemy.loot} />
                 </span>
             {indxPos === indx ?
-                <span className="entitieCardB" onClick={() => handleFight(enemy)}>{enemy.type === 'Enemy' ? 'Fight' : 'Collect'}</span>
+                <span className="entitieCardB" onClick={() => handleFight(enemy)}>{enemy.type === 'Enemy' ? <GiBroadsword /> : 'Collect'}</span>
                 : <span className="entitieCardB block" >{enemy.type === 'Enemy' ? 'Fight' : tool !== undefined ? 'Collect' : 'No tool'}</span>}
         </div>
     )

@@ -172,7 +172,7 @@
 /* ---------------------------------------------inventori-------------------------------------------------- */
 
 .inventori {
-    width: 186px;
+    max-width: 186px;
     height:fit-content;
     display: flex;
     flex-direction: column;
@@ -193,7 +193,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 5px;
 }
 
@@ -577,6 +577,14 @@
     cursor: pointer;
     padding: 5px;
 }
+.exp-Body {
+    width: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    gap: 10px;
+}
 
 /* -----------------------------------------------shop----------------------------------------------------- */
 
@@ -726,6 +734,31 @@
     margin-right: auto;
     gap: 2px;
 }
+/* -----------------------------------------------Farm----------------------------------------------------- */
+.farmSlotContainer{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.4);
+    gap: 20px;
+    padding: 2px;
+    border-radius: 10px;
+}
+.farmSlot {
+    width: 150px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+}
+.farmSlotInventori {
+    width: 76px;
+    height: 196px;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+}
 
 /* -----------------------------------------------Town----------------------------------------------------- */
 
@@ -766,20 +799,62 @@
     width: 100%;
     height: 100%;
     display: flex;
-    background-image: url("./Img/HomeBg.png") ;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 5px;
-}
-
-.home-navBar {
-    width: 185px;
-    height: 220px;
-    display: flex;
     flex-direction: column;
-    border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 5px;
+    align-items: center;
+    gap: 10px;
+    overflow-y: scroll;
+}
+.homeSection {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.homeFrmSpot {
+    width: 120px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+}
+.homeFrmSpot:hover {
+    background-color: var(--color-success);
+    color: black;
+}
+.homeButton {
+    width: 250px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+}
+.homeButton:hover {
+    background-color: var(--color-success);
+    color: black;
+}
+.homeInventori {
+    width: 250px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+}
+.separator {
+    width: 770px;
+    height: 20px;
+    border-bottom: 1px solid white ;
 }
 
 /* ------------------------------------------------nn------------------------------------------------------ */
